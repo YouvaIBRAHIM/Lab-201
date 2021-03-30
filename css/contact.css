@@ -1,0 +1,14 @@
+
+.cursor::after{
+    top: -2px;
+    left: -2px;
+    
+}
+
+.swal2-popup, 
+.swal2-popup div, 
+.swal2-popup button, 
+.swal2-popup span, 
+.swal2-popup h2{
+    cursor: pointer!important;
+}

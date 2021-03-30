@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <link
+    href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/style.css">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js" defer></script>
@@ -16,10 +27,90 @@
 </head>
 <body>
     <div class="cursor"></div>
-    <button class="login">Se connecter en tant qu'administrateur</button>
+    
     <header>
         <nav>
-            <!-- <div class="reseaux">
+            
+            <ul class="nav-bar">
+                <li>
+                    <a href="#videos">
+                        <span>
+                            VIDEOS
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#tours">
+                        <span>
+                            TOUR
+                        </span>
+                    </a>
+                </li>
+                <li class="logo">
+                    <span>LANA DEL REY</span>
+                </li>
+                <li>
+                    <a href="">
+                        <span>
+                            ACTUS
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="contactBtn" href="">
+                        <span>
+                            CONTACT
+                        </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+            <div class="shop">
+                <a href="">
+                    <span>
+                        SHOP
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <!-- 
+    <div class="customButton">
+        <div class="wrapper">
+            <div class="link_wrapper">
+              <a href="#"><span>RÉSERVER</span></a>
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
+                  <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+    </div>
+ -->
+    <main>
+        <section class="contact">
+            <div class="container">
+                <form class="contact" action="" method="post">
+                    <fieldset>CONTACT</fieldset>
+                    <div class="name-email">
+                        <input type="" id="nom" name="nom" placeholder="Nom" autofocus="autofocus" required/>  <br/>
+                        <input type="email" id="émail" name="email" placeholder="Email" required/>
+                    </div> <br/>
+                    <input type="" id="sujet" name="sujet" placeholder="Sujet" required/> <br/>
+                    <textarea  id="monTexte" name="monTexte" placeholder="Message" required></textarea> <br/>
+                    <div class="conditions">
+                        <input type="checkbox" id="conditions" required/><span>Accepter les conditions générales</span>
+                    </div>
+                    <div class="closeBtn fas fa-times"></div>
+                    <button type="submit" id="submit">Envoyer</button> 
+    
+                </form>
+            </div>
+        </section>
+        <section class="cover">
+            <div class="reseaux">
                 <ul>
                     <li>
                         <a href="">
@@ -31,9 +122,9 @@
                             <img width="25px" src="./img/reseaux/facebook.svg" alt="">
                         </a>
                     </li>
-                    <li>
+                    <li >
                         <a href="">
-                            <img width="25px" src="./img/reseaux/youtube.svg" alt="">
+                            <img width="30px" src="./img/reseaux/youtube.svg" alt="">
                         </a>
                     </li>
                     <li>
@@ -43,63 +134,86 @@
                     </li>
                     <li>
                         <a href="">
-                            <img width="25px" src="./img/reseaux/logo-deezer.svg" alt="">
+                            <img width="30px" src="./img/reseaux/logo-deezer.svg" alt="">
                         </a>
                     </li>
                 </ul>
-            </div> -->
-            <div class="logo">
-                <a href=""><span>Lana Del Rey</span></a>
             </div>
-            <ul class="nav-bar">
-                <li>
-                    <a href="">
-                        <span>
-                            Videos
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>
-                            Tour
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>
-                            Shop
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span>
-                            Contact
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <!-- 
-    <div class="customButton">
-        <div class="wrapper">
-            <div class="link_wrapper">
-              <a href="#"><span>Let's go!</span></a>
-              <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
-                  <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
-                </svg>
-              </div>
+            <div class="toWatchVideo">
+                <a href="#videos">
+                    <span>Descendez pour voir la video</span>
+                    <svg class="arrow">
+                        <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
+                    </svg>
+                </a>
             </div>
-          </div>
-    </div> -->
+        </section>
+        <section id="videos" class="videos">
+            <div class="container">
+                <h1>VIDEOS</h1>
+                <video
+                 width="1000"
+                 id="my-video"
+                class="video-js vjs-theme-city"
+                controls
+                preload="auto"
+                poster=""
+                data-setup="{}"
+                 >
+                    <source src="./webpack.mp4" type="video/mp4">
+                </video>
+                <div class="reseaux">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img width="40px" src="./img/reseaux/instagram.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="40px" src="./img/reseaux/facebook.svg" alt="">
+                            </a>
+                        </li>
+                        <li >
+                            <a href="">
+                                <img width="40px" src="./img/reseaux/youtube.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="40px" src="./img/reseaux/spotify.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="40px" src="./img/reseaux/logo-deezer.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="visuel">
 
+        </section>
+        <section id="tours" class="tours">
+            <div class="container">
+                <h1>TOUR</h1>
+                <div class="usaTour">
+                    <div class="usa">USA</div>
+                    <div class="dates">
+                       
+                    </div>
+                    <div class="more-less-dates">PLUS  DE  DATES</div>
+                </div>
+            </div>
+        </section>
+    </main>
     
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

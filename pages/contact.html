@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <title>Contact</title>
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <header>
+        <nav>
+            
+            <ul class="nav-bar">
+                <li>
+                    <a href="">
+                        <span>
+                            VIDEOS
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html#tours">
+                        <span>
+                            TOUR
+                        </span>
+                    </a>
+                </li>
+                <li class="logo">
+                    <span>LANA DEL REY</span>
+                </li>
+                <li>
+                    <a href="">
+                        <span>
+                            ACTUS
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>
+                            CONTACT
+                        </span>
+                    </a>
+                </li>
+                
+                
+            </ul>
+            <div class="shop">
+                <a href="">
+                    <span>
+                        SHOP
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>CONTACT</h1>
+            <form class="contact" action="" method="post">
+                <label for="nom">Nom : </label><input type="" id="nom" name="nom" placeholder="Saisir votre nom" autofocus="autofocus" required/> <br/>
+                <label for="émail">Email : </label><input type="email" id="émail" name="email" placeholder="aaaa@gmail.com" required/> <br/>
+                <label for="sujet">Sujet : </label><input type="" id="sujet" name="sujet" placeholder="Saisir le sujet de votre message" required/> <br/>
+                <label for="zone de texte">Message : </label><textarea  id="monTexte" name="monTexte" placeholder="Message" required></textarea> <br/>
+
+                <button type="submit" id="submit">Envoyer</button> 
+
+            </form>
+        </div>
+    </main>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+    <script type="module" src="../js/contact.js"></script>
+</body>
+</html>
