@@ -29,51 +29,89 @@
     <div class="cursor"></div>
     
     <header>
-        <nav>
-            
-            <ul class="nav-bar">
-                <li>
-                    <a href="#videos">
-                        <span>
-                            VIDEOS
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#tours">
-                        <span>
-                            TOUR
-                        </span>
-                    </a>
-                </li>
-                <li class="logo">
-                    <span>LANA DEL REY</span>
-                </li>
-                <li>
+        <div class="menuToggle">
+            <div class="menuToggleBar"></div>
+        </div>
+        <div class="mobileLogo">
+            <a href="#">
+                <img width="70" src="./img/Logos/Logo 9.png" alt="">
+            </a>
+        </div>
+        <div class="contain">
+            <nav>
+                <ul class="nav-bar">
+                    <li>
+                        <a href="#videos">
+                            <span>
+                                VIDEOS
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tours">
+                            <span>
+                                TOUR
+                            </span>
+                        </a>
+                    </li>
+                    <li class="logo">
+                        <span>LANA DEL REY</span>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>
+                                ACTUS
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contactBtn" href="">
+                            <span>
+                                CONTACT
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+                <div class="shop">
                     <a href="">
                         <span>
-                            ACTUS
+                            SHOP
                         </span>
                     </a>
-                </li>
-                <li>
-                    <a class="contactBtn" href="">
-                        <span>
-                            CONTACT
-                        </span>
-                    </a>
-                </li>
-                
-                
-            </ul>
-            <div class="shop">
-                <a href="">
-                    <span>
-                        SHOP
-                    </span>
-                </a>
-            </div>
-        </nav>
+                </div>
+                <div class="reseaux">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img width="25px" src="./img/reseaux/instagram.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="25px" src="./img/reseaux/facebook.svg" alt="">
+                            </a>
+                        </li>
+                        <li >
+                            <a href="">
+                                <img width="30px" src="./img/reseaux/youtube.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="25px" src="./img/reseaux/spotify.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img width="30px" src="./img/reseaux/logo-deezer.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
     <!-- 
     <div class="customButton">
@@ -114,27 +152,27 @@
                 <ul>
                     <li>
                         <a href="">
-                            <img width="25px" src="./img/reseaux/instagram.svg" alt="">
+                            <img width="25px" src="./img/reseaux/w-instagram.svg" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <img width="25px" src="./img/reseaux/facebook.svg" alt="">
+                            <img width="25px" src="./img/reseaux/w-facebook.svg" alt="">
                         </a>
                     </li>
                     <li >
                         <a href="">
-                            <img width="30px" src="./img/reseaux/youtube.svg" alt="">
+                            <img width="30px" src="./img/reseaux/w-youtube.svg" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <img width="25px" src="./img/reseaux/spotify.svg" alt="">
+                            <img width="25px" src="./img/reseaux/w-spotify.svg" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <img width="30px" src="./img/reseaux/logo-deezer.svg" alt="">
+                            <img width="30px" src="./img/reseaux/w-deezer.svg" alt="">
                         </a>
                     </li>
                 </ul>
@@ -147,21 +185,18 @@
                     </svg>
                 </a>
             </div>
+            <div class="logo">
+                <img src="./img/Logos/Logo 8.png" alt="">
+            </div>
         </section>
         <section id="videos" class="videos">
             <div class="container">
                 <h1>VIDEOS</h1>
-                <video
-                 width="1000"
-                 id="my-video"
-                class="video-js vjs-theme-city"
-                controls
-                preload="auto"
-                poster=""
-                data-setup="{}"
-                 >
-                    <source src="./webpack.mp4" type="video/mp4">
-                </video>
+                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                <a class="more-videos" href="http://" target="_blank" rel="noopener noreferrer">
+                    <span>PLUS DE VIDEOS</span>
+                </a>
                 <div class="reseaux">
                     <ul>
                         <li>
@@ -191,16 +226,59 @@
                         </li>
                     </ul>
                 </div>
+                <div class="avis">
+                    <h2>LANA DEL REY</h2>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quasi alias consectetur. Dolorum deleniti numquam vitae quam ad distinctio deserunt voluptatum id quis accusantium. Soluta aperiam iure nisi expedita officiis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quasi alias consectetur. Dolorum deleniti numquam vitae quam ad distinctio deserunt voluptatum id quis accusantium. Soluta aperiam iure nisi expedita officiis.</span>
+                    <a class="shopBtn" href="http://" target="_blank" rel="noopener noreferrer">
+                        <span>SHOP</span>
+                    </a>
+                    <div class="avis-reseaux">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img width="30px" src="./img/reseaux/w-instagram.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img width="30px" src="./img/reseaux/w-facebook.svg" alt="">
+                                </a>
+                            </li>
+                            <li >
+                                <a href="">
+                                    <img width="30px" src="./img/reseaux/w-youtube.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img width="30px" src="./img/reseaux/w-spotify.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img width="30px" src="./img/reseaux/w-deezer.svg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="visuel">
-
+            <img src="./img/Logos/Logo 8.png" alt="">
         </section>
         <section id="tours" class="tours">
             <div class="container">
                 <h1>TOUR</h1>
                 <div class="usaTour">
                     <div class="usa">USA</div>
+                    <div class="dates">
+                       
+                    </div>
+                    <div class="more-less-dates">PLUS  DE  DATES</div>
+                </div>
+                <div class="europeTour">
+                    <div class="europe"></div>
                     <div class="dates">
                        
                     </div>

@@ -10,10 +10,9 @@
   justify-content: center;
 }
 .cover{
-  background-image: url(../img/lana-cover.jpg);
+  background-image: url(../img/Visuels/Visuel\ home.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 92vh;
 }
 .cover .reseaux{
   
@@ -22,7 +21,7 @@
   height: 100px;
 }
 .cover .reseaux li{
-  opacity: 0.4;
+  opacity: 0.8;
   margin: 0 5px;
   
 }
@@ -87,18 +86,26 @@
 polygon {
   fill: #c95151;
 }
-.videos, .visuel, .tours, .contact{
+.cover, .videos, .visuel, .tours, .contact{
   height: 100vh;
 }
+.cover .logo{
+  display: none;
+}
 .videos{
-  background-color: #9a7676;
+  background-image: url(../img/Visuels/Chemtrails.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 .videos .container, 
 .tours .container, 
 .contact .container, 
 .contact form, 
 .contact form .conditions,
-.contact form .closeBtn{
+.contact form .closeBtn,
+.videos .more-videos, 
+.videos .shopBtn{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,6 +117,26 @@ polygon {
   top: 650px;
   transition: all .35s;
 }
+.videos iframe{
+  width: 80%;
+  height:  570px;
+  box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.49);
+}
+
+.videos .more-videos, .videos .shopBtn{
+  text-decoration: none;
+  color: white;
+  width: 270px;
+  height: 60px;
+  background-color: #c95151;
+  box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.49);
+  margin: 20px auto;
+  transition: all .35s;
+}
+.videos .more-videos:hover, .videos .shopBtn:hover{
+  transform: scale(1.1);
+}
+
 .videos .reseaux{
   margin-top: 20px;
 }
@@ -128,30 +155,19 @@ polygon {
   transition: ease .35s;
   width: 55px;
 }
-
+.videos .avis{
+  display: none;
+}
 .visuel{
-  background-color: #c95151;
+  background-image: url(../img/Visuels/Tour\ visuel.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
-
-.video-js .vjs-big-play-button {
-  width: 70px;
-  height: 70px;
-  border-radius:50%;
-  top: 47%;
-  left: 47%;
-  background-color: white;
-  color: black;
-  border: none;
-  content: "\f125"!important;
-}
-.video-js:hover .vjs-big-play-button {
-  background-color: white;
-}
-.video-js .vjs-big-play-button .vjs-icon-placeholder:before{
-    top: 12px;
-}
-.vjs-theme-city .vjs-control-bar{
-  top: 87%;
+.visuel img{
+  position: absolute;
+  width: 40%;
 }
 .tours .container{
   margin: 0px auto;
@@ -160,15 +176,18 @@ polygon {
   margin: 80px auto 10px;
 
 }
-.tours .usaTour{
+.tours .usaTour, 
+.tours .europeTour{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border: 1px solid rgba(0, 0, 0, 0.411);
   width: 100%;
+  margin-bottom: 100px;
 }
 
-.tours .usaTour .more-less-dates{
+.tours .usaTour .more-less-dates, 
+.tours .europeTour .more-less-dates{
   width: 200px;
   height: 50px;
   background-color: #fffcfc;
@@ -181,39 +200,44 @@ polygon {
   top: 25px;
   transition: all .35s;
 }
-.tours .usaTour .more-less-dates:hover{
+.tours .usaTour .more-less-dates:hover, 
+.tours .europeTour .more-less-dates:hover{
   color: white;
   background-color: black;
   
 }
-.tours .usaTour .usa{
+.tours .usaTour .usa,
+.tours .europeTour .europe{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   font-size: 80px;
   font-weight: 900;
 }
-.tours .usaTour .dates{
+.tours .europeTour .europe::after{
+  content: "EUROPE";
+}
+.tours .dates{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 70%!important;
+  width: 60%!important;
 }
-.tours .usaTour .dates .date{
+.tours .dates .date{
   display: flex;
   flex-direction: column;
   width: 40%;
   margin: 20px 20px;
 }
-.tours .usaTour .dates .date .day-month-year{
+.tours .dates .date .day-month-year{
   font-size: 26px;
 }
-.tours .usaTour .dates .date .city{
+.tours .dates .date .city{
   font-size: 30px;
   font-weight: 900;
 }
-.tours .usaTour .dates .date .place{
+.tours .dates .date .place{
   font-family: "Avenir";
   font-size: 30px;
 }
@@ -293,12 +317,23 @@ polygon {
   background-color: #f5343f;
   border: none;
 }
-@media screen and (max-width:1100px){
+
+@media screen and (max-width:1030px){
+  .videos iframe{
+    width: 100%;
+    height:  400px;
+  }
   .contact form .closeBtn{
     left: 96%;
   }
   .contact form{
     width: 80%;
+  }
+  .tours .europeTour .europe::after{
+    content: "UE";
+  }
+  .visuel img{
+    width: 60%;
   }
 }
 @media screen and (max-width:900px){
@@ -308,13 +343,89 @@ polygon {
   .contact form .name-email input{
     margin-top: 20px;
   }
+
 }
 @media screen and (max-width:550px){
   .contact form .closeBtn{
     left: 95%;
   }
+  .videos {
+
+    height: 115vh;
+  }
   .contact form{
     width: 90%;
-    height: 75%;
+    height: 85%;
   }
+  .videos .container{
+    justify-content: flex-start;
+    transform: scale(1);
+    top: auto;
+    margin-top: 40px;
+  }
+  
+  .videos iframe{
+    width: 95%;
+    height:  240px;
+  }
+  .more-videos,
+  .more-videos span,
+  .shopBtn,
+  .shopBtn span{
+    cursor: pointer!important;
+  }
+  .videos .reseaux{
+    display: none;
+  }
+  .videos .avis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.315);
+    background-color: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(3px);
+  }
+  .videos .avis h2, 
+  .videos .avis span,
+  .videos .avis .shopBtn{
+    margin: 15px auto;
+  }
+  .videos .avis-reseaux ul{
+    margin-top: 20px;
+    padding: 0;
+  }
+  .videos .avis-reseaux li{
+    padding: 0 15px;
+  }
+  .videos .avis-reseaux li img:hover{
+    width: 30px;
+
+  }
+  .contact .container{
+    align-items: flex-start;
+  }
+  .cover, .visuel{
+    background-position-x: -500px;
+  }
+  .cover .toWatchVideo{
+    display: none;
+  }
+  .cover .logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85%;
+  }
+  .cover .logo img{
+    width: 90%;
+  }
+  
+  .visuel img{
+    width: 100%;
+  }
+
 }

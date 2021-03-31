@@ -13,7 +13,7 @@ body{
     border: 1px solid rgb(37, 37, 37);
     border-radius: 50%;
     position: absolute;
-    z-index: 6!important;
+    z-index: 10!important;
     background-color: #fffcfccc;
     pointer-events: none;
     animation: cursorAnim1 500ms infinite alternate;
@@ -145,16 +145,20 @@ body{
   right: 25%;
 }
 header{
-  display: block;
+  display: flex;
+  background-color: #ffffff;
+  position: fixed;
+  width: 100vw;
   height: 8vh;
+  z-index: 1;
+  box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.10);
 }
 nav{
-  position: fixed;
   display: flex;
   background-color: #ffffff;
   width: 100vw;
   height: 8vh;
-  z-index: 1;
+  z-index: 3;
   box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.10);
 }
 nav ul{
@@ -222,10 +226,234 @@ nav .shop a:hover{
   color: white;
   background-color: black;
 }
+header .reseaux{
+  display: none;
+}
+header .reseaux ul{
+  padding: 0;
+}
+header .reseaux li{
+  transition: all .35s;
+}
+header .reseaux li:hover{
+  transform: scale(1.5);
+}
+header .mobileLogo img{
+  display: none;
+}
+header .menuToggle{
+  display: none;
+  width: 70px;
+  height: 8vh;
+  user-select: none;
+  position: fixed;
+  z-index: 0;
+  padding: 10px;
+  transition: all .50s;
+}
+
+.menuToggleBar,
+.menuToggleBar::before,
+.menuToggleBar::after{
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .50s ease;
+  background: black;
+  content: '';
+  height: 0.2rem;
+  width: 50px;
+  border-radius: 1px;
+}
+header .menuToggle .menuToggleBar{ 
+  margin-top: 0;
+  width: 30px;
+  margin-left: 10%;
+}
+
+ .menuToggleBar::after { 
+   margin-top: 0.8rem;
+   height: 0.15rem;
+    margin-left: -10px;
+}
+
+ .menuToggleBar::before{ 
+   margin-top: -0.8rem;
+    margin-left: -10px;
+  }
+  .menuToggle.expanded .menuToggleBar { 
+    background: transparent; 
+  }
+  .menuToggle.expanded{
+    transform: rotate(90deg);
+  }
+  .menuToggle.expanded .menuToggleBar::after, .menuToggle.expanded .menuToggleBar::before {
+    margin-top: 0;
+  }
+  
+  .menuToggle.expanded .menuToggleBar::after {
+    height: 0.2rem;
+    transform: rotate(45deg);
+  }
+  
+  .menuToggle.expanded .menuToggleBar::before {
+    transform: rotate(-45deg);
+    
+  }
+
+
 .swal2-popup, 
 .swal2-popup div, 
 .swal2-popup button, 
 .swal2-popup span, 
 .swal2-popup h2{
     cursor: pointer!important;
+}
+
+@media screen and (max-width:1150px){
+  
+  header .contain{
+    height: 92vh;
+    width: 100vw;
+    position: absolute;
+    top: 8vh;
+    z-index: 3;
+    transition: all .35s;
+    pointer-events: none;
+  }
+  header .contain.expanded{
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
+  header .contain nav{
+    height: 92vh;
+    width: 40vw;
+    position: absolute;
+    flex-direction: column;
+    z-index: 5;
+    left: -50rem;
+    pointer-events:all;
+    transition: all .50s;
+    box-shadow: inset 0px 4px 29px 5px rgba(0,0,0,0.10);
+  }
+  header .contain nav.expanded{
+    left: 0;
+  }
+  header .contain nav .nav-bar{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    height: 50vh;
+  }
+  header .contain nav .nav-bar li{
+    margin: 20px 0;
+    margin-left: 50px;
+    position: relative;
+    left: -20rem;
+    pointer-events:all;
+  }
+  header .contain nav .nav-bar li:nth-child(1){
+    transition: all 300ms;
+  }
+  header .contain nav .nav-bar li:nth-child(2){
+    transition: all 400ms;
+  }
+  header .contain nav .nav-bar li:nth-child(4){
+    transition: all 500ms;
+  }
+  header .contain nav .nav-bar li:nth-child(5){
+    margin-top: 100px ;
+    transition: all 700ms;
+  }
+  header .contain nav .nav-bar li.expanded{
+    left: 0;
+  }
+  nav .logo{
+    display: none;
+  }
+  header .nav-bar a{
+    font-size: 25px;
+  }
+  .shop{
+    justify-content: flex-start!important;
+    width: 40vw!important;
+    height: 10vh;
+    position: relative;
+    top: -325px;
+    left: -20rem;
+    transition: all 600ms;
+    pointer-events: none;
+  }
+  .shop a{
+    
+    margin: 0 0 0 80px!important;
+    pointer-events: all;
+    border: none!important;
+    color: #E34747!important;
+    font-size: 25px!important;
+    padding: 0!important;
+  }
+  .shop a::after{
+    display:block;
+    content: '';
+    border-bottom: solid 2px #E34747;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+  .shop a:hover{
+    color: inherit;
+    background-color: inherit!important;
+  }
+  .shop a:hover:after { 
+    transform: scaleX(1);
+    transform-origin:  0% 50%; 
+  }
+  .shop.expanded{
+    left: 0;
+  }
+  header .reseaux{
+    display: block;
+  }
+  header .menuToggle,
+  .menuToggleBar,
+  .menuToggleBar::before,
+  .menuToggleBar::after{
+    display: block;
+  }
+  header .mobileLogo{
+    width: 70px;
+    height: 8vh;
+    position: relative;
+    margin: 0 auto;
+    
+  }
+  header .mobileLogo, 
+  header .mobileLogo a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  header .mobileLogo img{
+    display: block;
+    width: 190%;
+  }
+  
+}
+
+
+@media screen and (max-width:590px){
+  .cursor{
+    display: none;
+  }
+  *{
+    cursor: default!important;
+  }
+  header .contain nav, .shop{
+    width: 60vw;
+  }
+  header .mobileLogo img{
+    cursor: pointer!important;
+  }
 }
