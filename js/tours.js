@@ -1,17 +1,31 @@
-let isDisplayAllUsaDates = false;
-let isDisplayAllEuropeDates = false;
+
 const usaTour = document.querySelector('.usaTour .dates');
+const usa = document.querySelector('.usaTour .usa');
+const usaAfter = document.querySelector(".tours .usaTour .usa div");
+
 const europeTour = document.querySelector('.europeTour .dates');
-const UsaMoreLessDates = document.querySelector('.usaTour .more-less-dates');
-const europeMoreLessDates = document.querySelector('.europeTour .more-less-dates');
+const europe = document.querySelector('.europeTour .europe');
+const europeAfter = document.querySelector(".tours .europeTour .europe div");
+const UsaMoreLessDates = document.querySelector(' .more-less-dates-for-usa');
+const europeMoreLessDates = document.querySelector(' .more-less-dates-for-europe');
 UsaMoreLessDates.addEventListener('click', () => {
-    isDisplayAllUsaDates = !isDisplayAllUsaDates;
-    usaTourDisplay();
+    usaTour.classList.toggle('expanded');
+    
 })
 europeMoreLessDates.addEventListener('click', () => {
-    isDisplayAllEuropeDates = !isDisplayAllEuropeDates;
-    europeTourDisplay();
+    europeTour.classList.toggle('expanded');
 })
+usaAfter.addEventListener('click', () => {
+    usaTour.classList.toggle('expanded');
+    usa.classList.toggle('expanded');
+    usaAfter.classList.toggle('expanded');
+})
+europeAfter.addEventListener('click', () => {
+    europeTour.classList.toggle('expanded');
+    europe.classList.toggle('expanded');
+    europeAfter.classList.toggle('expanded');
+})
+
 
 function getDateTour(dates, index) {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -33,6 +47,9 @@ function getDateTour(dates, index) {
             </div>
         </div>
     </div>
+    <a class="mobileBookBtn" href="${dates[index].link}" target="_blank" rel="noopener noreferrer">
+        <span>Réserver</span>
+    </a>
 </div>`;
 }
 
@@ -47,19 +64,12 @@ async function usaTourDisplay() {
                     usaDates.push(dates[i]);
                 }
             }
-            if (isDisplayAllUsaDates === false) {
-                usaTour.innerHTML = "";
-                for (let i = 0; i < 4; i++) {
-                    let date = getDateTour(usaDates, i);
-                    usaTour.innerHTML += date;
-                }
-            }else{
-                usaTour.innerHTML = "";
-                for (let i = 0; i < usaDates.length; i++) {
-                    let date = getDateTour(usaDates, i);
-                    usaTour.innerHTML += date;
-                }
+            usaTour.innerHTML = "";
+            for (let i = 0; i < usaDates.length; i++) {
+                let date = getDateTour(usaDates, i);
+                usaTour.innerHTML += date;
             }
+
         })
 }
 async function europeTourDisplay() {
@@ -74,19 +84,10 @@ async function europeTourDisplay() {
                     europeDates.push(dates[i]);
                 }
             }
-            console.log(europeDates)
-            if (isDisplayAllEuropeDates === false) {
-                europeTour.innerHTML = "";
-                for (let i = 0; i < 4; i++) {
-                    let date = getDateTour(europeDates, i);
-                    europeTour.innerHTML += date;
-                }
-            }else{
-                europeTour.innerHTML = "";
-                for (let i = 0; i < europeDates.length; i++) {
-                    let date = getDateTour(europeDates, i);
-                    europeTour.innerHTML += date;
-                }
+            europeTour.innerHTML = "";
+            for (let i = 0; i < europeDates.length; i++) {
+                let date = getDateTour(europeDates, i);
+                europeTour.innerHTML += date;
             }
         })
 }

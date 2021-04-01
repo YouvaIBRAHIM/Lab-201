@@ -105,7 +105,8 @@ polygon {
 .contact form .conditions,
 .contact form .closeBtn,
 .videos .more-videos, 
-.videos .shopBtn{
+.videos .shopBtn,
+.mobileBookBtn{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,14 +117,17 @@ polygon {
   position: absolute;
   top: 650px;
   transition: all .35s;
+
 }
 .videos iframe{
-  width: 80%;
+  width: 78%;
   height:  570px;
   box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.49);
 }
 
-.videos .more-videos, .videos .shopBtn{
+.videos .more-videos, 
+.videos .shopBtn,
+.mobileBookBtn{
   text-decoration: none;
   color: white;
   width: 270px;
@@ -133,7 +137,9 @@ polygon {
   margin: 20px auto;
   transition: all .35s;
 }
-.videos .more-videos:hover, .videos .shopBtn:hover{
+.videos .more-videos:hover, 
+.videos .shopBtn:hover,
+.mobileBookBtn:hover{
   transform: scale(1.1);
 }
 
@@ -183,25 +189,30 @@ polygon {
   flex-wrap: wrap;
   border: 1px solid rgba(0, 0, 0, 0.411);
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  height: auto;
+  padding: 10px 0;
+  
 }
-
-.tours .usaTour .more-less-dates, 
-.tours .europeTour .more-less-dates{
+.mobileBookBtn{
+  display: none;
+}
+.tours .more-less-dates-for-usa, 
+.tours .more-less-dates-for-europe{
   width: 200px;
   height: 50px;
   background-color: #fffcfc;
   border: 1px solid rgba(0, 0, 0, 0.411);
   position: relative;
-  align-self: flex-end;
+  top: -75px;
+  align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 25px;
   transition: all .35s;
 }
-.tours .usaTour .more-less-dates:hover, 
-.tours .europeTour .more-less-dates:hover{
+.tours .more-less-dates-for-usa:hover, 
+.tours .more-less-dates-for-europe:hover{
   color: white;
   background-color: black;
   
@@ -223,6 +234,13 @@ polygon {
   flex-direction: row;
   flex-wrap: wrap;
   width: 60%!important;
+  max-height: 440px;
+  overflow: hidden;
+  transition: max-height 500ms;
+}
+.tours .dates.expanded{
+  max-height: 2000px;
+  
 }
 .tours .dates .date{
   display: flex;
@@ -241,7 +259,10 @@ polygon {
   font-family: "Avenir";
   font-size: 30px;
 }
-
+.tours .usaTour .usa div,
+  .tours .europeTour .europe div{
+    display: none;
+  }
 
 .contact{
   display: none;
@@ -329,11 +350,12 @@ polygon {
   .contact form{
     width: 80%;
   }
-  .tours .europeTour .europe::after{
-    content: "UE";
-  }
+  
   .visuel img{
     width: 60%;
+  }
+  .tours .europeTour .europe::after{
+    content: "UE";
   }
 }
 @media screen and (max-width:900px){
@@ -371,7 +393,9 @@ polygon {
   .more-videos,
   .more-videos span,
   .shopBtn,
-  .shopBtn span{
+  .shopBtn span,
+  .mobileBookBtn,
+  .mobileBookBtn span{
     cursor: pointer!important;
   }
   .videos .reseaux{
@@ -399,10 +423,15 @@ polygon {
   }
   .videos .avis-reseaux li{
     padding: 0 15px;
+    
+  }
+  .videos .avis-reseaux li img{
+    opacity: 0.8;
   }
   .videos .avis-reseaux li img:hover{
     width: 30px;
-
+    opacity: 1;
+    cursor: pointer!important;
   }
   .contact .container{
     align-items: flex-start;
@@ -428,4 +457,92 @@ polygon {
     width: 100%;
   }
 
+
+  /*Tour*/
+
+
+  .tours .more-less-dates-for-usa, 
+  .tours .more-less-dates-for-europe{
+  display: none;
+  }
+  
+
+  .tours .usaTour, 
+  .tours .europeTour{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%!important;
+    margin-bottom: 50px;
+  }
+  .tours .usaTour .usa,
+  .tours .europeTour .europe{
+    width: 80%;
+    height: 50px;
+    padding: 0;
+    font-size: 22px;
+    transition: ease .90s;
+  }
+  .tours .usaTour .usa.expanded,
+  .tours .europeTour .europe.expanded{
+    
+    border-bottom: 1px solid black;
+  }
+  .tours .usaTour .usa div,
+  .tours .europeTour .europe div{
+    color: #c95151;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer!important;
+    left: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .50s;
+  }
+  .tours .europeTour .europe::after{
+    content: "EUROPE";
+  }
+  .tours i{
+    cursor: pointer!important;
+
+  }
+  .tours .usaTour .usa div.expanded,
+  .tours .europeTour .europe div.expanded{
+    transform: rotate(180deg);
+  }
+  .tours .customButton {
+      display: none;
+    }
+    .mobileBookBtn{
+      display: flex;
+      margin-top: 0;
+      box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.20);
+    }
+    
+  .tours .dates {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%!important;
+    max-height: 0px;
+    transition: all .50s;
+
+  }
+  .tours .dates.expanded {
+    max-height: 5000px;
+  }
+  .tours .dates .date{
+    width: 100%;
+    margin: 10px 0 20px 0 ;
+  }
+}
+
+@media screen and (max-width:500px){
+  .videos {
+    height: 140vh;
+  }
 }

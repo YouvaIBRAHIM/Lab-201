@@ -43,10 +43,12 @@ document.addEventListener('scroll', (event) => {
    if (window.innerWidth >= 550) {
       if (scrollY <= 650) {
       videoContainer.style.top = '650px';
+      videoContainer.style.marginTop = '0';
       videoContainer.style.transform = "scale(0.6)";
       }
       if (scrollY <= 936 && scrollY >= 650) {
          videoContainer.style.position = 'absolute';
+         videoContainer.style.marginTop = '20px';
          videoContainer.style.top = (scrollY + 150)+ 'px';
          videoContainer.style.transform = "scale(1)";
       }

@@ -311,7 +311,7 @@ header .menuToggle .menuToggleBar{
     cursor: pointer!important;
 }
 
-@media screen and (max-width:1150px){
+@media all and (max-width:1150px){
   
   header .contain{
     height: 92vh;
@@ -328,9 +328,10 @@ header .menuToggle .menuToggleBar{
   }
   header .contain nav{
     height: 92vh;
-    width: 40vw;
+    width: 50vw;
     position: absolute;
     flex-direction: column;
+    justify-content: flex-end;
     z-index: 5;
     left: -50rem;
     pointer-events:all;
@@ -343,8 +344,10 @@ header .menuToggle .menuToggleBar{
   header .contain nav .nav-bar{
     flex-direction: column;
     align-items: flex-start;
+    position: absolute;
     margin-left: 0;
-    height: 50vh;
+    top: 16.5vh;
+    height: 40vh;
   }
   header .contain nav .nav-bar li{
     margin: 20px 0;
@@ -379,8 +382,8 @@ header .menuToggle .menuToggleBar{
     justify-content: flex-start!important;
     width: 40vw!important;
     height: 10vh;
-    position: relative;
-    top: -325px;
+    position: absolute;
+    top: 0;
     left: -20rem;
     transition: all 600ms;
     pointer-events: none;
@@ -443,7 +446,7 @@ header .menuToggle .menuToggleBar{
 }
 
 
-@media screen and (max-width:590px){
+@media all and (max-width:590px){
   .cursor{
     display: none;
   }
@@ -451,9 +454,15 @@ header .menuToggle .menuToggleBar{
     cursor: default!important;
   }
   header .contain nav, .shop{
-    width: 60vw;
+    width: 65vw;
   }
   header .mobileLogo img{
     cursor: pointer!important;
+  }
+}
+
+@media all and (max-width:500px){
+  header .contain nav{
+    width: 80vw;
   }
 }
