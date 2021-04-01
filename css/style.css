@@ -36,28 +36,25 @@
   text-align: center;
   align-self: flex-end;
   margin-bottom: 250px;
-  
-  
-  
+    
 }
 .cover .toWatchVideo a{
   position: absolute;
   min-width: 400px;
-  height: 70px;
-  padding: 30px 30px 70px 30px;
+  height: 50px;
+  padding: 30px 30px 50px 30px;
   text-decoration: none;
-  color: #c95151;
-  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  background-color:#E34747;
   backdrop-filter: blur(5px);
-  border: 1px solid #c95151;
   font-size: 16px;
   text-transform: uppercase;
   transform: translate(-50%, -50%);
   transition: all .50s;
 }
 .cover .toWatchVideo a:hover{
-  transform: translate(-50%, -50%) scaleX(1.2);
-  padding: 40px 50px 80px 50px;
+  transform: translate(-50%, -50%) scaleX(1.1);
+  padding: 40px 40px 60px 40px;
   
 }
 .cover .toWatchVideo span{
@@ -79,12 +76,12 @@
   z-index: 2;
   margin: auto;
   display: block;
-  transform: scale(0.3);
+  transform: translateY( -20%) scale(0.3);
   transition: all .50s;
 }
 
 polygon {
-  fill: #c95151;
+  fill: white;
 }
 .cover, .videos, .visuel, .tours, .contact{
   height: 100vh;
@@ -175,6 +172,7 @@ polygon {
   position: absolute;
   width: 40%;
 }
+
 .tours .container{
   margin: 0px auto;
 }
