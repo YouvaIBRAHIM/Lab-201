@@ -3,10 +3,7 @@ import onToggleLogin from "./login.js";
 import "./contact.js";
 import "./tours.js";
 import "./header.js"
-const login = document.querySelector('.login');
-if (login) {
-   login.addEventListener('click', onToggleLogin); 
-}
+
 
 const videoContainer = document.querySelector('.videos .container');
 

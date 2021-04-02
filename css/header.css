@@ -191,12 +191,12 @@ nav .nav-bar a{
   display: inline-block;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0 30px;
 }
 .logo span{
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
 }
 .nav-bar a::after{
@@ -215,7 +215,7 @@ nav .shop a{
   position: absolute;
   float: right;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 15px;
   color: black;
   border: 1px solid black;
   padding: 10px 45px;

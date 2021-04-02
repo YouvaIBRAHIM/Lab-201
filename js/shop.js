@@ -22,7 +22,6 @@ function productGenerator(products, index) {
                 <img src="${products[index].img}" alt="">
                 <h2 class="name">${products[index].name}</h2>
                 <h4 class="type">${products[index].type}</h4>
-                <span class="description">${products[index].description}</span>
                 <h5 class="sizes">${sizesToDisplay}</h5>
                 <h3 class="price">${products[index].price}</h3>
                 <div class="customButton">

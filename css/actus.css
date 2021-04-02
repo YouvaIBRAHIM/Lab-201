@@ -1,0 +1,92 @@
+@import "./contact.css";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&display=swap');
+@import url(../fonts/Avenir/AvenirLTStd-Light.otf);
+
+*{
+    font-family: "Bodoni Moda";
+}
+body{
+    background-image: url(../img/Visuels/Image\ fond.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+main{
+    color: white;
+    position: relative;
+    top: 74px;
+}
+
+.actus, 
+.actus .container, 
+.actus .container .articles,
+.actus .container .publications,
+.actus .container .publication{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.actus .container .articles{
+    margin-top: 50px;
+}
+.actus .container .publication{
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 500px;
+    background-color: rgba(61, 61, 61, 0.527);
+    backdrop-filter: blur(20px);
+   margin-bottom: 50px;
+   transition: all .35s;
+}
+.actus .container .publication > *{
+    padding: 0 20px;
+}
+.actus .container .publication img{
+    width: 500px;
+    padding: 0;
+}
+.actus .container .publication .titre{
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.actus .container .publication .text,
+.actus .container .publication .read {
+    margin: 15px 0;
+}
+.actus .container .publication .text{
+    transition: max-height .50s;
+    overflow: hidden;
+    max-height: 0;
+}
+.actus .container .publication .text.expanded{
+    max-height: 2000px;
+}
+.actus .container .publication .read{
+    margin-left: auto;
+    color: white;
+}
+.actus .container .publication .read span::after{
+    content: "Lire la suite";
+}
+.actus .container .publication .read span.expanded::after{
+    content: "Fermer";
+}
+@media screen and (max-width:550px){
+    .actus .container .publication,
+    .actus .container .publication img{
+        width: 400px;
+    }
+    
+}
+
+@media screen and (max-width:420px){
+    .actus .container .publication,
+    .actus .container .publication img{
+        width: 350px;
+    }
+    
+}
