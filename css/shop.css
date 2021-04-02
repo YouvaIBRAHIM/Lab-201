@@ -1,0 +1,138 @@
+@import "./contact.css";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&display=swap');
+@import url(../fonts/Avenir/AvenirLTStd-Light.otf);
+
+*{
+    font-family: "Bodoni Moda";
+}
+body{
+    background-image: url(../img/Visuels/Shop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+main{
+    color: white;
+}
+
+.boutique, .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.boutique .logo{
+    height: 200px;
+    margin-bottom: 100px;
+}
+
+.boutique .logo img{
+    width: 350px;
+    transition: all .35s;
+}
+.boutique .logo img:hover{
+    transform: scale(1.2);
+}
+.boutique .products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90vw;
+}
+
+.boutique .products .product{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    height: 730px;
+    margin: 0 20px 50px 20px;
+    transition: all .35s;
+    
+}
+.boutique .products .product img{
+    width: 400px;
+    height: 400px;
+    box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.5);
+
+}
+.description, 
+.sizes,
+.price{
+    margin: 5px auto;
+}
+.description, 
+.sizes,
+.price, 
+.name,
+.type{
+    text-shadow: 0px 0px 10px #000000;
+}
+
+.boutique .products .product .type{
+    font-size: 16px;
+}
+.boutique .products .product .description{
+    max-height: 125px;
+    overflow: scroll;
+}
+.boutique .products .product .description::-webkit-scrollbar {
+    display: none;
+}
+.boutique .products .product .sizes{
+    font-size: 14px;
+}
+.boutique .products .product .price::after{
+    content: "€";
+}
+
+.customButton a{
+    color: white;
+    border: none;
+    
+  }
+
+.customButton a:hover{
+    background-color: inherit;
+}
+.customButton:hover svg{
+    opacity: 0;
+}
+
+.customButton .icon svg{
+    fill: white;
+}
+
+@media all and (max-width:970px){
+    .boutique .products .product{
+        width: 300px;
+    }
+    .boutique .products .product img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media all and (max-width:550px){
+    .boutique .products{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+        width: 100%;
+    }
+    .boutique .products .product{
+        width: 400px;
+    }
+    .boutique .products .product img{
+        width: 400px;
+        height: 400px;
+    }
+}

@@ -112,7 +112,7 @@ polygon {
 .videos .container{
   transform: scale(0.6);
   position: absolute;
-  top: 650px;
+  top: 600px;
   transition: all .35s;
 
 }
@@ -140,8 +140,17 @@ polygon {
   transform: scale(1.1);
 }
 
+.videos .more-videos,
+.videos h1,
+.videos iframe,
 .videos .reseaux{
-  margin-top: 20px;
+  margin: 20px auto;
+}
+.videos .avis{
+  margin: 40px auto;
+}
+.videos h1{
+  padding-bottom: 10px;
 }
 .videos .reseaux ul{
   display: flex;
@@ -421,7 +430,6 @@ polygon {
   }
   .videos .avis-reseaux li{
     padding: 0 15px;
-    
   }
   .videos .avis-reseaux li img{
     opacity: 0.8;
@@ -434,8 +442,12 @@ polygon {
   .contact .container{
     align-items: flex-start;
   }
-  .cover, .visuel{
+  .cover{
     background-position-x: -500px;
+  }
+  .visuel{
+    background-image: url(../img/Visuels/Tour\ mobile.png);
+    
   }
   .cover .toWatchVideo{
     display: none;
@@ -542,5 +554,15 @@ polygon {
 @media screen and (max-width:500px){
   .videos {
     height: 140vh;
+  }
+  .videos .avis{
+    padding: 20px;
+  }
+  .videos .avis h2{
+    align-self: flex-start!important;
+    margin: 20px 0!important;
+  }
+  .videos .avis-reseaux li{
+    padding: 0 5px;
   }
 }

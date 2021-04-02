@@ -150,7 +150,7 @@ header{
   background-color: #ffffff;
   position: fixed;
   width: 100vw;
-  height: 8vh;
+  height: 75px;
   z-index: 1;
   box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.10);
 }
@@ -158,7 +158,7 @@ nav{
   display: flex;
   background-color: #ffffff;
   width: 100vw;
-  height: 8vh;
+  height: 75px;
   z-index: 3;
   box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.10);
 }
@@ -245,11 +245,12 @@ header .mobileLogo img{
 header .menuToggle{
   display: none;
   width: 70px;
-  height: 8vh;
+  height: 70px;
   user-select: none;
   position: fixed;
   z-index: 0;
   padding: 10px;
+  transform: translateX(40%);
   transition: all .50s;
 }
 
@@ -271,11 +272,11 @@ header .menuToggle .menuToggleBar{
   margin-top: 0;
   width: 30px;
   margin-left: 10%;
+  transform: scale(0.8);
 }
 
  .menuToggleBar::after { 
    margin-top: 0.8rem;
-   height: 0.15rem;
     margin-left: -10px;
 }
 
@@ -287,14 +288,14 @@ header .menuToggle .menuToggleBar{
     background: transparent; 
   }
   .menuToggle.expanded{
-    transform: rotate(90deg);
+    transform:  translateX(40%) rotate(90deg);
   }
   .menuToggle.expanded .menuToggleBar::after, .menuToggle.expanded .menuToggleBar::before {
     margin-top: 0;
   }
   
   .menuToggle.expanded .menuToggleBar::after {
-    height: 0.2rem;
+    
     transform: rotate(45deg);
   }
   
@@ -315,10 +316,10 @@ header .menuToggle .menuToggleBar{
 @media all and (max-width:1150px){
   
   header .contain{
-    height: 92vh;
+    height: 100vh!important;
     width: 100vw;
     position: absolute;
-    top: 8vh;
+    top: 74px;
     z-index: 3;
     transition: all .35s;
     pointer-events: none;
@@ -358,17 +359,17 @@ header .menuToggle .menuToggleBar{
     pointer-events:all;
   }
   header .contain nav .nav-bar li:nth-child(1){
-    transition: all 300ms;
+    transition: all 500ms;
   }
   header .contain nav .nav-bar li:nth-child(2){
-    transition: all 400ms;
+    transition: all 600ms;
   }
   header .contain nav .nav-bar li:nth-child(4){
-    transition: all 500ms;
+    transition: all 700ms;
   }
   header .contain nav .nav-bar li:nth-child(5){
     margin-top: 100px ;
-    transition: all 700ms;
+    transition: all 900ms;
   }
   header .contain nav .nav-bar li.expanded{
     left: 0;
@@ -386,7 +387,7 @@ header .menuToggle .menuToggleBar{
     position: absolute;
     top: 0;
     left: -20rem;
-    transition: all 600ms;
+    transition: all 800ms;
     pointer-events: none;
   }
   .shop a{
@@ -441,7 +442,8 @@ header .menuToggle .menuToggleBar{
   }
   header .mobileLogo img{
     display: block;
-    width: 190%;
+    width: 100%;
+    transform: scale(1.5);
   }
   
 }

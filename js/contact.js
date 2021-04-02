@@ -1,6 +1,4 @@
 
-import {onMouseMove, onMouseClick} from "./cursor.js";
-
 const firebaseDb = firebase.database().ref();
 const Toast = Swal.mixin({
     toast: true,
@@ -19,8 +17,7 @@ const contact = document.querySelector('.contact');
 const inputsForm = document.querySelectorAll('.contact input');
 const textareaForm = document.querySelector('.contact textarea');
 const submitBtn = document.querySelector('.contact button');
-document.addEventListener('mousemove', onMouseMove)
-document.addEventListener('click', onMouseClick)
+
 
 submitBtn.addEventListener('click', onToggleSubmit)
 
