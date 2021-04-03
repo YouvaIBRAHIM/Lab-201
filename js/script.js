@@ -1,8 +1,6 @@
-import firebaseConfig from './firebaseConfig.js';
-import onToggleLogin from "./login.js";
 import "./contact.js";
 import "./tours.js";
-import "./header.js"
+import "./header.js";
 
 
 const videoContainer = document.querySelector('.videos .container');

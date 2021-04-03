@@ -1,5 +1,4 @@
-import firebaseConfig from './firebaseConfig.js';
-import onToggleLogin from "./login.js";
+
 import "./contact.js";
 import "./header.js";
 

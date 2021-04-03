@@ -1,12 +1,59 @@
 @import "./contact.css";
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&display=swap');
-@import url(../fonts/Avenir/AvenirLTStd-Light.otf);
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 *{
     font-family: "Bodoni Moda";
 }
+main{
+    color: white;
+}
+.log, .log .container, .log .container .login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.log {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    
+}
 
-.login{
-    margin-top: 100px;
+.log .container{
+    position: absolute;
+    width: 100vw;
+    height: 250px;
+    background-color: rgba(121, 121, 121, 0.712);
+    box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.66);
+    text-shadow: 0px 0px 14px #000000;
+}
+
+.log .container .login{
+    text-decoration: none;
+    color: black;
+    flex-direction: row;
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px 11px rgba(0,0,0,0.2);
+}
+.log .container .login::after{
+    content: "";
+    width: 50px;
+    height: 50px;
+    left: 50px;
+    background-color: #4082ec8a;
+    backdrop-filter: blur(20px);
+    background-image: url(../img/reseaux/google.png);
+    position: relative;
+
+}
+.log .container .login span{
+    font-family: 'Poppins';
+    font-weight: 600;
+    margin-left: 30px;
+    text-shadow: none;
 }

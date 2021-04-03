@@ -33,7 +33,7 @@ function getDateTour(dates, index) {
     dateTour = `${dateTour[1]} ${dateTour[2]}`;
     return `<div class="date">
     <h5 class="day-month-year">${dateTour}</h4>
-    <h2 class="city">${dates[index].city}</h2>
+    <h2 class="city">${dates[index].city}, ${dates[index].country}</h2>
     <h3 class="place">${dates[index].place}</h3>
     <div class="customButton">
         <div class="wrapper">
@@ -59,8 +59,17 @@ async function usaTourDisplay() {
     let firebaseDb = await firebase.database().ref();
         firebaseDb.child('dates').on('value', snap => {
             dates = Object.values(snap.val());
+            dates.sort((a, b) => {
+                if ( a.date < b.date ){
+                    return -1;
+                  }
+                  if ( a.date > b.date ){
+                    return 1;
+                  }
+                  return 0;
+            })
             for (let i = 0; i < dates.length; i++) {
-                if (dates[i].continentCountry === "USA") {
+                if (dates[i].continent === "USA") {
                     usaDates.push(dates[i]);
                 }
             }
@@ -78,9 +87,17 @@ async function europeTourDisplay() {
     let firebaseDb = await firebase.database().ref();
         firebaseDb.child('dates').on('value', snap => {
             dates = Object.values(snap.val());
-            
+            dates.sort((a, b) => {
+                if ( a.date < b.date ){
+                    return -1;
+                  }
+                  if ( a.date > b.date ){
+                    return 1;
+                  }
+                  return 0;
+            })
             for (let i = 0; i < dates.length; i++) {
-                if (dates[i].continentCountry === "Europe") {
+                if (dates[i].continent === "Europe") {
                     europeDates.push(dates[i]);
                 }
             }

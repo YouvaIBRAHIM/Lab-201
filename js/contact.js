@@ -1,4 +1,5 @@
-
+import firebaseConfig from './firebaseConfig.js';
+firebase.initializeApp(firebaseConfig);
 const firebaseDb = firebase.database().ref();
 const Toast = Swal.mixin({
     toast: true,

@@ -1,19 +1,24 @@
 
+
  .contact{
-  display: flex;
+  
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
-  z-index: 5;
+  flex-direction: column;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
 }
 
-.contact{
-  height: 100vh;
-}
 
 .contact .container, 
-.contact form, 
-.contact form .conditions,
-.contact form .closeBtn{
+.contact .contactForm, 
+.contact .contactForm .conditions,
+.contact .contactForm .closeBtn{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,29 +26,20 @@
 }
 
 
-.contact{
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  z-index: 4;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-}
-.contact form{
+.contact .contactForm{
   align-items: flex-start;
-  width: 55%;
-  height: 70%;
+  width: 70%;
+  height: 600px;
   background-color: white;
   box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
   padding: 0 60px;
 }
-.contact form .name-email{
+.contact .contactForm .name-email{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
-.contact form .closeBtn{
+.contact .contactForm .closeBtn{
   color: rgb(42, 42, 42);
   font-size: 24px;
   background-color: white;
@@ -51,80 +47,81 @@
   box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
   width: 50px;
   height: 50px;
-  position: fixed;
-  top: -25px;
-  left: 98%;
-
+  position: relative;
+  top: -81%;
+  left: 105%;
 }
-.contact form fieldset{
+.contact .contactForm fieldset{
   align-self: center;
   margin-bottom: 20px;
   font-size: 30px;
   color: black;
   padding-top: 20px;
 }
-.contact form input, 
-.contact form textarea, 
-.contact form button{
+.contact .contactForm input, 
+.contact .contactForm textarea, 
+.contact .contactForm button{
 
   height: 50px;
   width: 40%;
   border: 1px solid black;
   padding-left: 10px;
 }
-.contact form .name-email input{
+.contact .contactForm .name-email input{
   margin-right: 60px;
 }
-.contact form textarea{
+.contact .contactForm textarea{
   height: 30%;
   width: 100%;
   resize: none;
 
 }
-.contact form .conditions{
+.contact .contactForm .conditions{
+  color: black;
   flex-direction: row;
 }
-.contact form .conditions input{
+.contact .contactForm .conditions input{
   height: 20px;
   width: 20px;
   margin-right: 10px;
 }
-.contact form button{
+.contact .contactForm button{
   margin: auto;
   color: white;
   background-color: #f5343f;
   border: none;
 }
 
-@media screen and (max-width:1030px){
+@media screen and (max-width:1200px){
   
-  .contact form .closeBtn{
-    left: 96%;
-  }
-  .contact form{
+
+  .contact .contactForm{
     width: 80%;
   }
   
 }
-@media screen and (max-width:900px){
-  .contact form input{
+@media screen and (max-width:995px){
+  .contact .contactForm {
+    height: 700px;
+  }
+  .contact .contactForm .closeBtn{
+    top: -86.5%;
+    left: 108%;
+  }
+  .contact .contactForm input{
     width: 60%;
   }
-  .contact form .name-email input{
+  .contact .contactForm .name-email input{
     margin-top: 20px;
   }
 
 }
 @media screen and (max-width:550px){
-  .contact form .closeBtn{
-    left: 95%;
-  }
-  
-  .contact form{
+ 
+  .contact .contactForm{
     width: 90%;
-    height: 85%;
-  }
 
+  }
   .contact .container{
     align-items: flex-start;
   }

@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&display=swap');
 @import url(../fonts/Avenir/AvenirLTStd-Light.otf);
+@import url("./contact.css");
 
 
-
-.cover, .videos, .visuel, .tour, .contact{
+.cover, .videos, .visuel, .tour{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 .cover{
-  background-image: url(../img/Visuels/Visuel\ home.jpg);
+  background-image: url(../img/Visuels/Visuel\ home.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -35,7 +35,7 @@
   position: absolute;
   text-align: center;
   align-self: flex-end;
-  margin-bottom: 250px;
+  margin-bottom: 220px;
     
 }
 .cover .toWatchVideo a{
@@ -83,7 +83,7 @@
 polygon {
   fill: white;
 }
-.cover, .videos, .visuel, .tours, .contact{
+.cover, .videos, .visuel, .tours{
   height: 100vh;
 }
 .cover .logo{
@@ -96,11 +96,7 @@ polygon {
   color: white;
 }
 .videos .container, 
-.tours .container, 
-.contact .container, 
-.contact form, 
-.contact form .conditions,
-.contact form .closeBtn,
+.tours .container,
 .videos .more-videos, 
 .videos .shopBtn,
 .mobileBookBtn{
@@ -176,12 +172,24 @@ polygon {
   background-size: cover;
   justify-content: flex-start;
   align-items: flex-end;
+  pointer-events:none;
 }
 .visuel img{
+  pointer-events:auto;
   position: absolute;
   width: 40%;
+  z-index: 0;
 }
-
+.visuel img:hover ~ .cursor{
+  width: 50px;
+  height: 50px;
+  mix-blend-mode: exclusion;
+  animation: none;
+}
+.visuel img:hover ~ .cursor::after{
+  
+  display: none;
+}
 .tours .container{
   margin: 0px auto;
 }
@@ -229,7 +237,7 @@ polygon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 30%;
   font-size: 80px;
   font-weight: 900;
 }
@@ -240,7 +248,7 @@ polygon {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 60%!important;
+  width: 70%!important;
   max-height: 440px;
   overflow: hidden;
   transition: max-height 500ms;
@@ -271,121 +279,32 @@ polygon {
     display: none;
   }
 
-.contact{
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  z-index: 4;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-}
-.contact form{
-  align-items: flex-start;
-  width: 55%;
-  height: 70%;
-  background-color: white;
-  box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
-  padding: 0 60px;
-}
-.contact form .name-email{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.contact form .closeBtn{
-  color: rgb(42, 42, 42);
-  font-size: 24px;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  top: -25px;
-  left: 98%;
 
-}
-.contact form fieldset{
-  align-self: center;
-  margin-bottom: 20px;
-  font-size: 30px;
-  color: black;
-  padding-top: 20px;
-}
-.contact form input, 
-.contact form textarea, 
-.contact form button{
-
-  height: 50px;
-  width: 40%;
-  border: 1px solid black;
-  padding-left: 10px;
-}
-.contact form .name-email input{
-  margin-right: 60px;
-}
-.contact form textarea{
-  height: 30%;
-  width: 100%;
-  resize: none;
-
-}
-.contact form .conditions{
-  flex-direction: row;
-}
-.contact form .conditions input{
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
-}
-.contact form button{
-  margin: auto;
-  color: white;
-  background-color: #f5343f;
-  border: none;
-}
 
 @media screen and (max-width:1030px){
   .videos iframe{
     width: 100%;
     height:  400px;
   }
-  .contact form .closeBtn{
-    left: 96%;
-  }
-  .contact form{
-    width: 80%;
-  }
   
   .visuel img{
     width: 60%;
   }
+
+}
+@media screen and (max-width:1400px){
   .tours .europeTour .europe::after{
     content: "UE";
   }
 }
-@media screen and (max-width:900px){
-  .contact form input{
-    width: 60%;
-  }
-  .contact form .name-email input{
-    margin-top: 20px;
-  }
 
-}
 @media screen and (max-width:550px){
-  .contact form .closeBtn{
-    left: 95%;
-  }
+
   .videos {
 
     height: 115vh;
   }
-  .contact form{
-    width: 90%;
-    height: 85%;
-  }
+
   .videos .container{
     justify-content: flex-start;
     transform: scale(1);
@@ -439,11 +358,8 @@ polygon {
     opacity: 1;
     cursor: pointer!important;
   }
-  .contact .container{
-    align-items: flex-start;
-  }
   .cover{
-    background-position-x: -500px;
+    background-position-x: 50%;
   }
   .visuel{
     background-image: url(../img/Visuels/Tour\ mobile.png);
@@ -451,16 +367,6 @@ polygon {
   }
   .cover .toWatchVideo{
     display: none;
-  }
-  .cover .logo{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    height: 85%;
-  }
-  .cover .logo img{
-    width: 90%;
   }
   
   .visuel img{
@@ -531,7 +437,9 @@ polygon {
       margin-top: 0;
       box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.20);
     }
-    
+    .mobileBookBtn:hover{
+     color: white;
+    }
   .tours .dates {
     flex-direction: column;
     justify-content: center;
