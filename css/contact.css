@@ -1,17 +1,31 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
 
 
- .contact{
+
+.contact{
   
   z-index: 5;
   width: 100vw;
   height: 100vh;
   display: none;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: fixed;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 
@@ -19,24 +33,39 @@
 .contact .contactForm, 
 .contact .contactForm .conditions,
 .contact .contactForm .closeBtn{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 
 .contact .contactForm{
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 70%;
   height: 600px;
   background-color: white;
-  box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
+          box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
   padding: 0 60px;
 }
 .contact .contactForm .name-email{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
 }
 .contact .contactForm .closeBtn{
@@ -44,7 +73,8 @@
   font-size: 24px;
   background-color: white;
   border-radius: 50%;
-  box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
+          box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
   width: 50px;
   height: 50px;
   position: relative;
@@ -52,7 +82,9 @@
   left: 105%;
 }
 .contact .contactForm fieldset{
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin-bottom: 20px;
   font-size: 30px;
   color: black;
@@ -78,7 +110,10 @@
 }
 .contact .contactForm .conditions{
   color: black;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .contact .contactForm .conditions input{
   height: 20px;
@@ -123,8 +158,9 @@
 
   }
   .contact .container{
-    align-items: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   
 }
-
