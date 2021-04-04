@@ -11,7 +11,7 @@
 @import url("./contact.css");
 
 
-.cover, .videos, .visuel, .tour{
+.cover, .videos, .visuel, .tour, .tours .soldOut{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,8 +161,7 @@ polygon {
 }
 
 .videos .more-videos, 
-.videos .shopBtn,
-.mobileBookBtn{
+.videos .shopBtn{
   text-decoration: none;
   color: white;
   width: 270px;
@@ -274,9 +273,7 @@ polygon {
   padding: 10px 0;
   
 }
-.mobileBookBtn{
-  display: none;
-}
+
 .tours .more-less-dates-for-usa, 
 .tours .more-less-dates-for-europe{
   width: 200px;
@@ -372,7 +369,13 @@ polygon {
     display: none;
   }
 
-
+.tours .soldOut{
+  flex-direction: column;
+  align-items: center;
+  color: #E34747;
+  border: 1px solid #E34747;
+  height: 50px;
+}
 
 @media screen and (max-width:1030px){
   .videos iframe{
@@ -559,19 +562,52 @@ polygon {
             transform: rotate(180deg);
   }
   .tours .customButton {
-      display: none;
-    }
-    .mobileBookBtn{
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
+      width: 270px;
+      height: 60px;
+      margin: auto;
       margin-top: 0;
-      -webkit-box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.20);
-              box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.20);
     }
-    .mobileBookBtn:hover{
-     color: white;
+
+      
+    .tours  .customButton a{
+      width: 270px;
+      height: 60px;
+      color: white;
+      border: none;
+      background-color: #E34747;
+      box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.2);
     }
+      
+      .tours  .customButton .icon,
+      .tours  .customButton .icon svg{
+      display: none;
+      }
+      
+    .tours  .customButton a:hover{
+      width: 270px;
+      color: white;
+      border: none;
+      background-color: #E34747;
+      transform: scale(1.05);
+    }
+      
+    .tours  .customButton a:hover:after{
+        height: inherit;
+        width: inherit;
+        top: inherit;
+        left: inherit;
+        z-index: 0;
+      }
+    .tours  .customButton a span{
+        margin-right: 0;
+
+      }
+    .tours  .customButton a:hover span{
+        margin-right: inherit;
+      }
+    .tours  .customButton a:hover + .icon{
+      right: inherit;
+      }
   .tours .dates {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -597,6 +633,10 @@ polygon {
   .tours .dates .date{
     width: 100%;
     margin: 10px 0 20px 0 ;
+  }
+  .tours .soldOut{
+    margin: auto;
+    width: 70%;
   }
 }
 
