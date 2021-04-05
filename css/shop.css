@@ -66,6 +66,158 @@ main{
         -ms-transform: translateX(-50%) scale(1.4);
             transform: translateX(-50%) scale(1.4);
 }
+
+.boutique .basketToggle{
+    width: 60px;
+    height: 50px;
+    position: fixed;
+    left: 92%;
+    top: 160px;
+    z-index: 5;
+}
+.boutique .basketToggle span{
+    position: relative;
+    top: 30px;
+    color: white;
+    font-weight: 700;
+}
+.boutique .basketToggle i{
+    color: black;
+    font-weight: 900;
+    font-size: 50px;
+    position: absolute;
+    margin: 0;
+}
+
+.boutique .basket{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh!important;
+    top: 75px;
+    z-index: 4!important;
+    background-color: rgba(255, 255, 255, 0.486);
+    backdrop-filter: blur(10px);
+}
+.boutique .basket .container{
+    width: 500px;
+    background-color: rgba(160, 105, 105, 0.486);
+    backdrop-filter: blur(10px);
+    margin: 50px auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.boutique .basket h1, 
+.boutique .basket span{
+    margin-right: auto;
+    text-shadow: 0px 0px 10px #000000
+    ;
+}
+.boutique .basket h1{
+    font-size: 2rem;
+    width: 100%;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.561);
+    padding-bottom: 10px;
+}
+.boutique .basket .productsFromBasket{
+    width: 100%;
+    max-height: 480px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.boutique .basket .productsFromBasket  .productFromBasket{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.boutique .basket .productsFromBasket .productFromBasket img{
+    width: 75px;
+    height: 75px;
+}
+.boutique .basket .productsFromBasket .productFromBasket ul{
+    width: 325px;
+    height: 75px;
+    list-style: none;
+    padding:15px 0 15px 10px;
+}
+.boutique .basket .productsFromBasket .productFromBasket .nbProduct{
+    padding-left: 5px;
+    margin-right: 0;
+}
+.boutique .basket .productsFromBasket .productFromBasket .nbProduct::after{
+    content: " x ";    
+}
+.boutique .basket .productsFromBasket .productFromBasket .price{
+    padding-left: 5px;
+    padding-bottom: 15px;
+    margin: auto 5px;
+}
+.boutique .basket .productsFromBasket .productFromBasket .price::after{
+    content: "€";
+}
+.boutique .basket .productsFromBasket .productFromBasket .more-less{
+    width: 60px;
+    height: 20px;
+    margin-left: auto;
+}
+.boutique .basket .productsFromBasket .productFromBasket .more-less a{
+    width: 25px!important;
+    height: 25px!important;
+    position: absolute;
+    background-color: white;
+    border: 1px solid red;
+    margin: 0 1px;
+    left: 390px;
+}
+.boutique .basket .productsFromBasket .productFromBasket .more-less .less{
+    left: 420px;
+}
+.boutique .basket .total{
+    width: 100%;
+    border-top: 5px solid  rgba(255, 255, 255, 0.561);
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 0px 0px 10px #000000;
+    font-size: 1.5rem;
+}
+.boutique .basket .total::before{
+    content: "SOUS-TOTAL ";
+}
+.boutique .basket .total::after{
+    content: "€";
+}
+.boutique .basket .buy{
+    width: 100%;
+    height: 50px;
+    text-decoration: none;
+    color: white;
+    background-color: #E34747;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.boutique .basket .buy span{
+    margin: 0;
+}
+
+
+
+/* products */
+
+
+
 .boutique .products{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -79,6 +231,7 @@ main{
     -ms-flex-pack: distribute;
         justify-content: space-around;
     width: 90vw;
+    z-index: 0!important;
 }
 
 .boutique .products .product{
@@ -169,7 +322,15 @@ main{
 .customButton:hover svg{
     opacity: 0;
 }
-
+@media all and (max-width:1150px){
+    .boutique .basketToggle{
+        top: 10px;
+        z-index: 5;
+    }
+    .boutique .basketToggle span{
+        color: black;
+    }
+}
 
 
 @media all and (max-width:970px){
@@ -187,6 +348,9 @@ main{
 }
 
 @media all and (max-width:550px){
+    .boutique .basketToggle{
+        left: 85%;
+    }
     .boutique .products{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
