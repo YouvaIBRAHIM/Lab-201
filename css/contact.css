@@ -162,5 +162,14 @@
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  
+  .contact .contactForm{
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width:400px){
+
+  .contact .contactForm .closeBtn{
+    top: -90%;
+    left: 100%;
+  }
 }

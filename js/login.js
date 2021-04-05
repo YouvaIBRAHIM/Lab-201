@@ -18,8 +18,9 @@ async function onToggleLogin(event) {
                 if (admins[key].email === result.user.email) {
                     connectedUser.push(result.user.email);
                     window.location.href = "./dash/index.html";
-                }  
-                if (connectedUser.length === 0) {
+                }   
+            }
+            if (connectedUser.length === 0) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oulah !',
@@ -28,7 +29,6 @@ async function onToggleLogin(event) {
                     })
                     firebase.auth().signOut();
                 }
-            }
         })
         
         

@@ -3,7 +3,6 @@ import "./contact.js";
 import "./header.js";
 
 const productsDiv = document.querySelector('.products');
-
 function productGenerator(products, index) {
     let sizes = products[index].size;
     let availableSizes = [];
@@ -19,6 +18,10 @@ function productGenerator(products, index) {
     return `
         <div class="product">
                 <img src="${products[index].img}" alt="">
+                <div class="shopBasket">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                
                 <h2 class="name">${products[index].name}</h2>
                 <h4 class="type">${products[index].type}</h4>
                 <h5 class="sizes">${sizesToDisplay}</h5>
@@ -44,13 +47,63 @@ async function getProducts() {
     let products;
     let firebaseDb = await firebase.database().ref();
         firebaseDb.child('products').on('value', snap => {
+            let keys = Object.keys(snap.val());
             products = Object.values(snap.val());
             productsDiv.innerHTML = "";
             for (let i = 0; i < products.length; i++) {
+                products[i].key = keys[i];
                 let product = productGenerator(products, i);
                 productsDiv.innerHTML += product;
             }
-
+            onToggleShopBasket(products);
         })
 }
 getProducts();
+
+async function onToggleShopBasket(products) {
+    let shopBaskets = document.querySelectorAll(".boutique .shopBasket i");
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    console.log(basket.length);
+for (let i = 0; i < shopBaskets.length; i++) {
+    for (let j = 0; j < basket.length; j++) {
+        if (basket[j].key == products[i].key) {
+            shopBaskets[i].style.color = 'white';
+            shopBaskets[i].style.textShadow = "0px 0px 14px #000000";
+        }
+    }
+
+shopBaskets[i].addEventListener('click', (event) => {
+    basket = JSON.parse(localStorage.getItem('basket')) || [];
+            let isFinded = false;
+                if (basket.length > 0) {
+                    basket.forEach( product => {
+                    if(product.key == products[i].key ){
+                        isFinded = true;
+                    }
+                    });
+                    if (isFinded == false) {
+                        basket.push(products[i]);
+                        localStorage.setItem('basket', JSON.stringify(basket));
+                        
+                        shopBaskets[i].style.color = 'white';
+                        shopBaskets[i].style.textShadow = "0px 0px 14px #000000"; 
+                    }else{
+                        basket = basket.filter(product => product.key != products[i].key);
+                        localStorage.setItem('basket', JSON.stringify(basket));
+
+                        shopBaskets[i].style.color = 'black';
+                        shopBaskets[i].style.textShadow = "0px 0px 14px #FFFFFF";
+                    }
+                }else{
+                    basket.push(products[i]);
+                    localStorage.setItem('basket', JSON.stringify(basket));
+                    shopBaskets[i].style.color = 'white';
+                    shopBaskets[i].style.textShadow = "0px 0px 14px #000000"; 
+                }
+
+        
+    })
+    
+}
+}
+

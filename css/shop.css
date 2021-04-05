@@ -140,6 +140,24 @@ main{
 .boutique .products .product .price::after{
     content: "€";
 }
+.boutique .shopBasket{
+    width: 40px;
+    height: 40px;
+    color: black;
+    position: absolute;
+    top: 52.5%;
+    left: 80%;
+}
+.boutique .shopBasket i{
+    font-size: 40px;
+    color: black;
+    padding: 0 2px;
+    transition: all .35s;
+    text-shadow: 0px 0px 10px #FFFFFF;
+}
+.boutique .shopBasket i:hover{
+    text-shadow: 0px 0px 20px #FFFFFF;
+}
 .customButton{
     margin: 5px auto;
 }
@@ -162,6 +180,9 @@ main{
     .boutique .products .product img{
         width: 300px;
         height: 300px;
+    }
+    .boutique .shopBasket{
+        top: 50%;
     }
 }
 
@@ -195,6 +216,9 @@ main{
     .type{
         margin: 8px 20px;
         text-shadow: 0px 0px 10px #000000;
+    }
+    .boutique .shopBasket{
+        top: 52.5%;
     }
 }
 @media all and (max-width:420px){

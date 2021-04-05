@@ -587,7 +587,7 @@ header .menuToggle,
 }
 header .mobileLogo{
   width: 70px;
-  height: 8vh;
+  height: 75px;
   position: relative;
   margin: 0 auto;
   
@@ -607,9 +607,11 @@ header .mobileLogo a{
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  
 }
 header .mobileLogo img{
   display: block;
+  
   width: 100%;
   -webkit-transform: scale(1.5);
       -ms-transform: scale(1.5);
