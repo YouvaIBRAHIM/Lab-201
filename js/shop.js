@@ -8,6 +8,8 @@ const basketToggle = document.querySelector('.basketToggle');
 const basketContainer = document.querySelector('.basket');
 const productsFromBasket = document.querySelector('.basket .productsFromBasket');
 const basketToggleNbProducts = document.querySelector('.basketToggle span');
+const total = document.querySelector('.basket .total');
+const buy = document.querySelector('.basket .buy');
 
 function productGenerator(products, index) {
     let sizes = products[index].size;
@@ -58,6 +60,7 @@ async function getProducts() {
             productsDiv.innerHTML = "";
             for (let i = 0; i < products.length; i++) {
                 products[i].key = keys[i];
+                products[i].index = i;
                 let product = productGenerator(products, i);
                 productsDiv.innerHTML += product;
             }
@@ -69,7 +72,6 @@ getProducts();
 async function onToggleShopBasket(products) {
     let shopBaskets = document.querySelectorAll(".boutique .shopBasket i");
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
-    console.log(basket.length);
 for (let i = 0; i < shopBaskets.length; i++) {
     for (let j = 0; j < basket.length; j++) {
         if (basket[j].key == products[i].key) {
@@ -142,42 +144,87 @@ function basketProductGenerator(basket, index) {
                 En stock
             </li>
         </ul>
-        <span class="nbProduct">1</span>
+        <span class="nbProduct">${basket[index].nbOfProduct}</span>
         <span class="price">${basket[index].price}</span>
         <div class="more-less">
             <a href="" class="more"><i class="fas fa-plus"></i></a>
             <a href="" class="less"><i class="fas fa-minus"></i></a>
         </div>
     </li>
-    <li class="productFromBasket">
-        <img src="${basket[index].img}" alt="">
-        <ul>
-            <li>
-                <h6>${basket[index].name}</h6>
-            </li>
-            <li>
-                En stock
-            </li>
-        </ul>
-        <span class="nbProduct">1</span>
-        <span class="price">${basket[index].price}</span>
-        <div class="more-less">
-            <a href="" class="more"><i class="fas fa-plus"></i></a>
-            <a href="" class="less"><i class="fas fa-minus"></i></a>
-        </div>
-    </li>
+    
     `;
 }
 
 async function getProductsFromBasket() {
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
-
     productsFromBasket.innerHTML = "";
+    if (basket.length == 0) {
+        productsFromBasket.innerHTML = "Panier vide";
+        total.style.display = "none";
+        buy.style.display = "none";
+    }else{
+        total.style.display = "block";
+        buy.style.display = "flex";
+    }
+    
     for (let i = 0; i < basket.length; i++) {
+        basket[i].nbOfProduct = 1;
         let product = basketProductGenerator(basket, i);
         productsFromBasket.innerHTML += product;
     }
+    let shopBaskets = document.querySelectorAll(".boutique .shopBasket i");
+    const product = document.querySelectorAll(".boutique .basket .productFromBasket");
+    const moreBtn = document.querySelectorAll(".boutique .basket .more");
+    const lessBtn = document.querySelectorAll(".boutique .basket .less");
+    const nbProduct = document.querySelectorAll(".boutique .basket .nbProduct");
+    let totalToPay = 0;
     
+    for (let j = 0; j < moreBtn.length; j++) {
+        let updatedTotal = 0;  
+        totalToPay += parseInt(basket[j].nbOfProduct) * parseInt(basket[j].price);
+        console.log(parseInt(totalToPay))
+        total.innerHTML = totalToPay;
+        moreBtn[j].addEventListener('click', (event) => {
+            event.preventDefault();
+            basket[j].nbOfProduct = basket[j].nbOfProduct + 1;
+            nbProduct[j].innerHTML = basket[j].nbOfProduct;
+            for (let k = 0; k < basket.length; k++) {
+                updatedTotal += (parseInt(basket[k].nbOfProduct) * parseInt(basket[k].price));
+                
+            }
+            totalToPay = updatedTotal;
+            total.innerHTML = totalToPay;
+            updatedTotal = 0;
+        })
+        lessBtn[j].addEventListener('click', (event) => {
+            event.preventDefault();
+                basket[j].nbOfProduct = basket[j].nbOfProduct - 1;
+                nbProduct[j].innerHTML = basket[j].nbOfProduct;
+
+                totalToPay = totalToPay - parseInt(basket[j].price);
+                total.innerHTML = totalToPay;
+            if (basket[j].nbOfProduct == 0) {
+                console.log(shopBaskets[basket[j].index])
+                shopBaskets[basket[j].index].style.color = 'black';
+                shopBaskets[basket[j].index].style.textShadow = "0px 0px 14px #FFFFFF";
+                basket.splice(j, 1);
+                localStorage.setItem('basket', JSON.stringify(basket));
+                product[j].remove();
+                if (basket.length > 0) {
+                    basketToggleNbProducts.innerHTML = basket.length;
+                }else{
+                    basketToggleNbProducts.innerHTML = "";
+                    productsFromBasket.innerHTML = "Panier vide";
+                    total.style.display = "none";
+                    buy.style.display = "none";
+                    
+                     
+                }
+            }            
+        })
+    }
+    
+
 }
 basketToggle.addEventListener('click', () => {
     productsFromBasket.innerHTML = "";
