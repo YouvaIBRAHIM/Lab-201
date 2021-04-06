@@ -20,6 +20,9 @@ body{
     background-attachment: fixed;
     
 }
+body.expanded{
+    overflow: hidden;
+}
 main{
     color: white;
 }
@@ -99,6 +102,9 @@ main{
     background-color: rgba(255, 255, 255, 0.486);
     backdrop-filter: blur(10px);
 }
+.boutique .basket.expanded{
+    display: block;
+}
 .boutique .basket .container{
     width: 500px;
     background-color: rgba(160, 105, 105, 0.486);
@@ -109,6 +115,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all .35s;
 
 }
 .boutique .basket h1, 
@@ -125,22 +132,29 @@ main{
 }
 .boutique .basket .productsFromBasket{
     width: 100%;
+    height: auto;
     max-height: 480px;
     padding: 0;
+    overflow: scroll;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
-}
 
+}
+.boutique .basket .productsFromBasket::-webkit-scrollbar {
+    display: none;
+  }
 .boutique .basket .productsFromBasket  .productFromBasket{
+    position: relative;
     width: 100%;
     height: 120px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .boutique .basket .productsFromBasket .productFromBasket img{
     width: 75px;
     height: 75px;
@@ -150,6 +164,8 @@ main{
     height: 75px;
     list-style: none;
     padding:15px 0 15px 10px;
+    text-shadow: 0px 0px 10px #000000
+    ;
 }
 .boutique .basket .productsFromBasket .productFromBasket .nbProduct{
     padding-left: 5px;
@@ -174,14 +190,21 @@ main{
 .boutique .basket .productsFromBasket .productFromBasket .more-less a{
     width: 25px!important;
     height: 25px!important;
-    position: absolute;
+    position: relative;
+    color: #E34747;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid #E34747;
     margin: 0 1px;
-    left: 390px;
+    left: 0;
 }
 .boutique .basket .productsFromBasket .productFromBasket .more-less .less{
-    left: 420px;
+    left: 30px;
+    top: -25px;
 }
 .boutique .basket .total{
     width: 100%;
@@ -210,6 +233,8 @@ main{
 }
 .boutique .basket .buy span{
     margin: 0;
+    text-shadow: none
+    ;
 }
 
 
@@ -232,6 +257,7 @@ main{
         justify-content: space-around;
     width: 90vw;
     z-index: 0!important;
+    
 }
 
 .boutique .products .product{
@@ -384,6 +410,34 @@ main{
     .boutique .shopBasket{
         top: 52.5%;
     }
+
+
+
+    .boutique .basket{
+      background-color: inherit;
+        backdrop-filter: blur(0);
+        background-image: url(../img/Visuels/Shop-mobile.png);
+        background-size: cover;
+    }
+    .boutique .basket .container{
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(0);
+        margin-top: 0;
+    }
+
+
+
+    .boutique .basketToggle span{
+        position: relative;
+        top: 25px;
+        
+    }
+    .boutique .basketToggle i{
+        top: 5px;
+        font-size: 40px;
+
+    }
+    
 }
 @media all and (max-width:420px){
     
@@ -396,5 +450,36 @@ main{
         height: 300px;
 
     }
+    .boutique .shopBasket{
+        top: 47%;
+    }
+
+
+    .boutique .basket .container{
+        width: 100%;
+        margin: 0!important;
+        padding: 50px 10px;
+    }
+
+    .boutique .basket .productsFromBasket .productFromBasket ul{
+        width: 75%;
+    }
+
+    .boutique .basket .productsFromBasket .productFromBasket .more-less{
+        width: 60px;
+        height: 20px;
+        margin-left: auto;
+    }
+    .boutique .basket .productsFromBasket .productFromBasket .more-less a{
+        width: 30px!important;
+        height: 30px!important;
+        left: -10px;
+    }
+   
+    .boutique .basket .productsFromBasket .productFromBasket .more-less .less{
+        left: 30px;
+        top: -30px;
+    }
+    
     
 }

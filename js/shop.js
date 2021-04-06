@@ -2,7 +2,13 @@
 import "./contact.js";
 import "./header.js";
 
+const body = document.querySelector('body');
 const productsDiv = document.querySelector('.products');
+const basketToggle = document.querySelector('.basketToggle');
+const basketContainer = document.querySelector('.basket');
+const productsFromBasket = document.querySelector('.basket .productsFromBasket');
+const basketToggleNbProducts = document.querySelector('.basketToggle span');
+
 function productGenerator(products, index) {
     let sizes = products[index].size;
     let availableSizes = [];
@@ -74,6 +80,7 @@ for (let i = 0; i < shopBaskets.length; i++) {
 
 shopBaskets[i].addEventListener('click', (event) => {
     basket = JSON.parse(localStorage.getItem('basket')) || [];
+    
             let isFinded = false;
                 if (basket.length > 0) {
                     basket.forEach( product => {
@@ -84,7 +91,7 @@ shopBaskets[i].addEventListener('click', (event) => {
                     if (isFinded == false) {
                         basket.push(products[i]);
                         localStorage.setItem('basket', JSON.stringify(basket));
-                        
+
                         shopBaskets[i].style.color = 'white';
                         shopBaskets[i].style.textShadow = "0px 0px 14px #000000"; 
                     }else{
@@ -101,9 +108,80 @@ shopBaskets[i].addEventListener('click', (event) => {
                     shopBaskets[i].style.textShadow = "0px 0px 14px #000000"; 
                 }
 
-        
+                basket = JSON.parse(localStorage.getItem('basket')) || [];
+    
+                if (basket.length > 0) {
+                    basketToggleNbProducts.innerHTML = basket.length;
+                }else{
+                    basketToggleNbProducts.innerHTML = "";
+                }
     })
     
 }
 }
 
+function nbOfProducts() {
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    if (basket.length > 0) {
+        basketToggleNbProducts.innerHTML = basket.length;
+    } 
+}
+nbOfProducts();
+
+function basketProductGenerator(basket, index) {
+    
+
+    return `
+    <li class="productFromBasket">
+        <img src="${basket[index].img}" alt="">
+        <ul>
+            <li>
+                <h6>${basket[index].name}</h6>
+            </li>
+            <li>
+                En stock
+            </li>
+        </ul>
+        <span class="nbProduct">1</span>
+        <span class="price">${basket[index].price}</span>
+        <div class="more-less">
+            <a href="" class="more"><i class="fas fa-plus"></i></a>
+            <a href="" class="less"><i class="fas fa-minus"></i></a>
+        </div>
+    </li>
+    <li class="productFromBasket">
+        <img src="${basket[index].img}" alt="">
+        <ul>
+            <li>
+                <h6>${basket[index].name}</h6>
+            </li>
+            <li>
+                En stock
+            </li>
+        </ul>
+        <span class="nbProduct">1</span>
+        <span class="price">${basket[index].price}</span>
+        <div class="more-less">
+            <a href="" class="more"><i class="fas fa-plus"></i></a>
+            <a href="" class="less"><i class="fas fa-minus"></i></a>
+        </div>
+    </li>
+    `;
+}
+
+async function getProductsFromBasket() {
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
+
+    productsFromBasket.innerHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+        let product = basketProductGenerator(basket, i);
+        productsFromBasket.innerHTML += product;
+    }
+    
+}
+basketToggle.addEventListener('click', () => {
+    productsFromBasket.innerHTML = "";
+    body.classList.toggle('expanded');
+    basketContainer.classList.toggle('expanded');
+    getProductsFromBasket();
+});
