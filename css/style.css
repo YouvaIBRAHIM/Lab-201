@@ -22,7 +22,7 @@
           justify-content: center;
 }
 .cover{
-  background-image: url(../img/Visuels/Visuel\ home.png);
+  background-image: url(../img/Visuels/Visuel\ home\ desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -237,6 +237,8 @@ polygon {
   position: absolute;
   width: 40%;
   z-index: 0;
+  left: 50px;
+  padding-bottom: 50px;
 }
 .visuel img:hover ~ .cursor{
   width: 50px;
@@ -468,7 +470,7 @@ polygon {
     cursor: pointer!important;
   }
   .cover{
-    background-position-x: 50%;
+    background-image: url(../img/Visuels/Mobile\ fond\ home.png);
   }
   .visuel{
     background-image: url(../img/Visuels/Tour\ mobile.png);
@@ -480,6 +482,7 @@ polygon {
   
   .visuel img{
     width: 100%;
+    left: 0;
   }
 
 

@@ -232,3 +232,9 @@ basketToggle.addEventListener('click', () => {
     basketContainer.classList.toggle('expanded');
     getProductsFromBasket();
 });
+basketContainer.addEventListener('click', () => {
+    productsFromBasket.innerHTML = "";
+    body.classList.toggle('expanded');
+    basketContainer.classList.toggle('expanded');
+    getProductsFromBasket();
+});

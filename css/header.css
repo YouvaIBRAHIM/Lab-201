@@ -246,6 +246,9 @@ text-align: center;
 nav .reseaux li a{
 padding: 0 10px;
 }
+header .contain nav .nav-bar li:nth-child(5){
+  display: none;
+}
 nav .nav-bar, nav .shop{
 height: 100%;
 display: -webkit-box;
@@ -296,6 +299,9 @@ transition: -webkit-transform 250ms ease-in-out;
 transition: transform 250ms ease-in-out;  
 transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
+header .contain nav .nav-bar .logo a::after{
+  border-bottom: none!important;  
+}
 a:hover:after { 
 -webkit-transform: scaleX(1); 
     -ms-transform: scaleX(1); 
@@ -327,6 +333,7 @@ header .reseaux{
 display: none;
 }
 header .reseaux ul{
+  margin-bottom: 60px;
 padding: 0;
 }
 header .reseaux li{
@@ -434,7 +441,7 @@ margin-left: 10%;
   cursor: pointer!important;
 }
 
-@media all and (max-width:1150px){
+@media all and (max-width:1200px){
 
 header .contain{
   height: 100vh!important;
@@ -511,7 +518,21 @@ header .contain nav .nav-bar li:nth-child(4){
   transition: all 700ms;
 }
 header .contain nav .nav-bar li:nth-child(5){
-  margin-top: 100px ;
+  display: block;
+  color: #E34747!important;
+  -webkit-transition: all 900ms;
+  -o-transition: all 900ms;
+  transition: all 800ms;
+}
+header .contain nav .nav-bar li:nth-child(5) a{
+  color: #E34747!important;
+
+}
+header .contain nav .nav-bar li:nth-child(5) a::after{
+  border-bottom: solid 2px #E34747;  
+  
+}
+header .contain nav .nav-bar li:nth-child(6){
   -webkit-transition: all 900ms;
   -o-transition: all 900ms;
   transition: all 900ms;
@@ -541,26 +562,9 @@ header .nav-bar a{
 }
 .shop a{
   
-  margin: 0 0 0 80px!important;
-  pointer-events: all;
-  border: none!important;
-  color: #E34747!important;
-  font-size: 25px!important;
-  padding: 0!important;
+  display: none;
 }
-.shop a::after{
-  display:block;
-  content: '';
-  border-bottom: solid 2px #E34747;  
-  -webkit-transform: scaleX(0);  
-      -ms-transform: scaleX(0);  
-          transform: scaleX(0);  
-  -webkit-transition: -webkit-transform 250ms ease-in-out;  
-  transition: -webkit-transform 250ms ease-in-out;  
-  -o-transition: transform 250ms ease-in-out;  
-  transition: transform 250ms ease-in-out;  
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
-}
+
 .shop a:hover{
   color: inherit;
   background-color: inherit!important;

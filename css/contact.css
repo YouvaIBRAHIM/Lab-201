@@ -7,7 +7,7 @@
 
 
 
-.contact{
+.contact, .addExperience{
   
   z-index: 5;
   width: 100vw;
@@ -29,10 +29,14 @@
 }
 
 
-.contact .container, 
-.contact .contactForm, 
+.contact .container,
+.addExperience .experienceForm, 
+.contact .contactForm,
+.addExperience .experienceForm, 
 .contact .contactForm .conditions,
-.contact .contactForm .closeBtn{
+.addExperience .experienceForm,
+.contact .contactForm .closeBtn,
+.addExperience .experienceForm .closeBtn{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +53,8 @@
 }
 
 
-.contact .contactForm{
+.contact .contactForm,
+.addExperience .experienceForm{
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -60,7 +65,8 @@
           box-shadow: 0px 4px 29px 5px rgba(0,0,0,0.35);
   padding: 0 60px;
 }
-.contact .contactForm .name-email{
+.contact .contactForm .name-email,
+.addExperience .experienceForm .subject-email{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,7 +74,8 @@
       flex-wrap: wrap;
   width: 100%;
 }
-.contact .contactForm .closeBtn{
+.contact .contactForm .closeBtn,
+.addExperience .experienceForm .closeBtn{
   color: rgb(42, 42, 42);
   font-size: 24px;
   background-color: white;
@@ -81,7 +88,8 @@
   top: -81%;
   left: 105%;
 }
-.contact .contactForm fieldset{
+.contact .contactForm fieldset,
+.addExperience .experienceForm fieldset{
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -90,37 +98,45 @@
   color: black;
   padding-top: 20px;
 }
-.contact .contactForm input, 
-.contact .contactForm textarea, 
-.contact .contactForm button{
+.contact .contactForm input,
+.addExperience .experienceForm input 
+.contact .contactForm textarea,
+.addExperience .experienceForm textarea 
+.contact .contactForm button,
+.addExperience .experienceForm button{
 
   height: 50px;
   width: 40%;
   border: 1px solid black;
   padding-left: 10px;
 }
-.contact .contactForm .name-email input{
+.contact .contactForm .name-email input,
+.addExperience .experienceForm .subject-email input{
   margin-right: 60px;
 }
-.contact .contactForm textarea{
+.contact .contactForm textarea,
+.addExperience .experienceForm textarea{
   height: 30%;
   width: 100%;
   resize: none;
 
 }
-.contact .contactForm .conditions{
+.contact .contactForm .conditions,
+.addExperience .experienceForm .conditions{
   color: black;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
-.contact .contactForm .conditions input{
+.contact .contactForm .conditions input,
+.addExperience .experienceForm .conditions input{
   height: 20px;
   width: 20px;
   margin-right: 10px;
 }
-.contact .contactForm button{
+.contact .contactForm button,
+.addExperience .experienceForm button{
   margin: auto;
   color: white;
   background-color: #f5343f;
@@ -130,45 +146,54 @@
 @media screen and (max-width:1200px){
   
 
-  .contact .contactForm{
+  .contact .contactForm,
+  .addExperience .experienceForm{
     width: 80%;
   }
   
 }
 @media screen and (max-width:995px){
-  .contact .contactForm {
+  .contact .contactForm,
+  .addExperience .experienceForm {
     height: 700px;
   }
-  .contact .contactForm .closeBtn{
+  .contact .contactForm .closeBtn,
+  .addExperience .experienceForm .closeBtn{
     top: -86.5%;
     left: 108%;
   }
-  .contact .contactForm input{
+  .contact .contactForm input,
+  .addExperience .experienceForm input{
     width: 60%;
   }
-  .contact .contactForm .name-email input{
+  .contact .contactForm .name-email input,
+  .addExperience .experienceForm .subject-email input{
     margin-top: 20px;
   }
 
 }
 @media screen and (max-width:550px){
  
-  .contact .contactForm{
+  .contact .contactForm,
+  .addExperience .experienceForm{
     width: 90%;
 
   }
-  .contact .container{
+  .contact .container,
+  .addExperience .container{
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .contact .contactForm{
+  .contact .contactForm,
+  .addExperience .experienceForm{
     padding: 10px 20px;
   }
 }
 @media screen and (max-width:400px){
 
-  .contact .contactForm .closeBtn{
+  .contact .contactForm .closeBtn,
+  .addExperience .experienceForm .closeBtn{
     top: -90%;
     left: 100%;
   }

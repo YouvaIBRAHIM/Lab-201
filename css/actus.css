@@ -22,71 +22,197 @@ main{
 .actus, 
 .actus .container, 
 .actus .container .articles,
+.experienceContainer,
 .actus .container .publications,
-.actus .container .publication{
+.experienceContainer .experiences,
+.actus .container .publication,
+.experienceContainer .experiences .experience{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.actus .container .articles{
+.actus .container .articles,
+.experienceContainer{
     margin-top: 50px;
 }
-.actus .container .publication{
+.actus .container .publication,
+.experienceContainer .experiences .experience{
     justify-content: flex-start;
     align-items: flex-start;
     width: 500px;
     background-color: rgba(61, 61, 61, 0.527);
     backdrop-filter: blur(20px);
+    padding-bottom: 10px;
    margin-bottom: 50px;
    transition: all .35s;
 }
-.actus .container .publication > *{
+.actus .date{
+    font-size: 14px;
+}
+.actus .resume{
+    font-size: 22px;
+}
+.experienceContainer .experiences .experience{
+    border: 5px solid #E34747;
+}
+.actus .container .publication > *,
+.experienceContainer .experiences .experience > *{
     padding: 0 20px;
 }
-.actus .container .publication img{
+.actus .container .publication img,
+.experienceContainer .experiences .experience img{
     width: 500px;
     padding: 0;
 }
-.actus .container .publication .titre{
+.experienceContainer .experiences .experience img{
+    width: 490px;
+}
+.actus .container .publication .titre,
+.experienceContainer .experiences .experience .titre{
     text-transform: uppercase;
     margin-top: 10px;
 }
 
 .actus .container .publication .text,
-.actus .container .publication .read {
+.experienceContainer .experiences .experience .text
+.actus .container .publication .read,
+.experienceContainer .experiences .experience .read {
     margin: 15px 0;
 }
-.actus .container .publication .text{
+.actus .container .publication .text,
+.experienceContainer .experiences .experience .text{
     transition: max-height .50s;
     overflow: hidden;
     max-height: 0;
 }
-.actus .container .publication .text.expanded{
+.experienceContainer .experiences .experience .text{
+    max-height: 100px;
+}
+.actus .container .publication .text.expanded,
+.experienceContainer .experiences .experience .text.expanded{
     max-height: 2000px;
 }
-.actus .container .publication .read{
+.actus .container .publication .read,
+.experienceContainer .experiences .experience .read{
     margin-left: auto;
     color: white;
 }
-.actus .container .publication .read span::after{
+.actus .container .publication .read span::after,
+.experienceContainer .experiences .experience .read span::after{
     content: "Lire la suite";
 }
-.actus .container .publication .read span.expanded::after{
+.actus .container .publication .read span.expanded::after,
+.experienceContainer .experiences .experience .read span.expanded::after{
     content: "Fermer";
+}
+
+.addToggleExperiece{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    background-color: #E34747;
+}
+.addToggleExperiece p{
+    margin: 0 10px;
+}
+.addToggleExperiece p::before{
+    content: "\f06a";
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    margin: 0 20px;
+}
+.addToggleExperiece a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 35px;
+}
+.addExperience {
+    display: none;
+    position: fixed;
+    top: 75px;
+}
+.addExperience.expanded{
+    display: flex;
+}
+.addExperience .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.addExperience .container .subject-email {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.addExperience .container .subject-email input{
+    height: 50px;
+    width: 45%;
+    border: 1px solid black;
+    padding: 0 10px;
+}
+.addExperience .container .subject-email #sujet{
+    margin-right: 0;
+}
+.addExperience .container textarea{
+    border: 1px solid black;
+}
+.addExperience .container .closeBtn{
+    top: -420px;
+}
+@media screen and (max-width:995px){
+    .addExperience .container .closeBtn{
+        top: -585px;
+    }
+    .addExperience .container .subject-email input{
+        width: 100%;
+        margin-right: 0;
+    }
+}
+@media screen and (max-width:670px){
+    .addToggleExperiece a{
+        padding: 5px 35px;
+    }
 }
 @media screen and (max-width:550px){
     .actus .container .publication,
-    .actus .container .publication img{
+    .experienceContainer .experiences .experience,
+    .actus .container .publication img,
+    .experienceContainer .experiences .experience img{
         width: 400px;
     }
-    
+    .experienceContainer .experiences .experience img{
+        width: 390px;
+    }
+    .addExperience .container .closeBtn{
+        left: 100%;
+    }
+    .addToggleExperiece p{
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width:420px){
     .actus .container .publication,
-    .actus .container .publication img{
+    .experienceContainer .experiences .experience,
+    .actus .container .publication img,
+    .experienceContainer .experiences .experience img{
         width: 350px;
     }
-    
+    .experienceContainer .experiences .experience img{
+        width: 340px;
+    }
+    .addToggleExperiece p{
+        margin: 0;
+        font-size: 12px;
+    }
 }
