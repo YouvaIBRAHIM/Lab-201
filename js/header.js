@@ -5,6 +5,7 @@ const nav = document.querySelector('header nav');
 const navContainer = document.querySelector('header .contain');
 const mainBody = document.querySelector('main');
 const navBarLi = document.querySelectorAll('header .contain nav .nav-bar li');
+const navBarLink = document.querySelectorAll('header .contain nav .nav-bar li a');
 const shopBtn = document.querySelector('.shop');
 let isBurgerMenuDisplayed = false;
 function onToggleMenu() {
@@ -27,5 +28,13 @@ mainBody.addEventListener('click', (event) => {
    }
    
 })
+for (let i = 0; i < navBarLink.length; i++) {
+   navBarLink[i].addEventListener('click', (event) => {
+      isBurgerMenuDisplayed = !isBurgerMenuDisplayed;
+      onToggleMenu();
+   
+})
+   
+}
 document.addEventListener('mousemove', onMouseMove)
 document.addEventListener('click', onMouseClick)

@@ -18,13 +18,29 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+    background-position: center;
+    overflow-x: hidden;
 }
 body.expanded{
     overflow: hidden;
 }
 main{
     color: white;
+}
+.precommand{
+    width: 100vw;
+    height: 75px;
+    position: absolute;
+    top: 75px;
+    background-color:  #E34747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.precommand p{
+    padding: 10px 20px 0 20px;
+    font-size: 28px;
 }
 
 .boutique, .container{
@@ -42,13 +58,19 @@ main{
         -ms-flex-align: center;
             align-items: center;
     padding: 0;
+    position: relative;
+    
 }
-
+.container{
+    margin-top: 50px;
+}
 .boutique .logo{
     height: 200px;
     margin-bottom: 100px;
 }
-
+footer{
+    margin-top: 150px;
+}
 .boutique .logo img{
     width: 350px;
     -webkit-transition: all .35s;
@@ -57,7 +79,7 @@ main{
     -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
             transform: scale(1.2);
-    position: fixed;
+    position: absolute;
     margin: 0 auto;
     top: 90px;
     -webkit-transform: translateX(-50%);
@@ -71,26 +93,28 @@ main{
 }
 
 .boutique .basketToggle{
-    width: 60px;
+    width: 50px;
     height: 50px;
     position: fixed;
-    left: 96%;
-    top: 10px;
-    z-index: 5;
+    right: 20px;
+    top: 25%;
+    z-index: 10;
+    text-align: center;
 }
 .boutique .basketToggle span{
     position: relative;
     color: black;
-    font-weight: 700;
-    top: 25px;
+    font-weight: 900;
+    top: 20px;
+    z-index: 1;
 }
 .boutique .basketToggle i{
-    color: black;
+    color: white;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 50px;
     position: absolute;
     margin: 0;
-    top: 5px;
+    right: 3px;
 }
 
 
@@ -101,18 +125,16 @@ main{
     height: 100vh!important;
     top: 75px;
     z-index: 4!important;
-    background-color: rgba(255, 255, 255, 0.486);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
 }
 .boutique .basket.expanded{
     display: block;
 }
 .boutique .basket .container{
     width: 500px;
-    background-color: rgba(160, 105, 105, 0.486);
-    backdrop-filter: blur(10px);
     margin: auto;
-    padding: 20px 40px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,8 +145,7 @@ main{
 .boutique .basket h1, 
 .boutique .basket span{
     margin-right: auto;
-    text-shadow: 0px 0px 10px #000000
-    ;
+    text-shadow: 0px 0px 10px #000000;
 }
 .boutique .basket h1{
     font-size: 2rem;
@@ -135,7 +156,7 @@ main{
 .boutique .basket .productsFromBasket{
     width: 100%;
     height: auto;
-    max-height: 600px;
+    max-height: 400px;
     padding: 0;
     overflow: scroll;
     display: flex;
@@ -238,9 +259,7 @@ main{
     ;
 }
 
-.shop a{
-    margin-right: 380px!important;
-}
+
 
 /* products */
 
@@ -280,7 +299,7 @@ main{
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     width: 400px;
-    height: 620px;
+    height: 700px;
     margin: 0 20px 50px 20px;
     -webkit-transition: all .35s;
     -o-transition: all .35s;
@@ -301,8 +320,10 @@ main{
 .sizes,
 .price, 
 .name,
-.type{
+.type,
+.description{
     margin: 5px auto;
+    text-align: center;
     text-shadow: 0px 0px 10px #000000;
 }
 
@@ -326,8 +347,8 @@ main{
     width: 40px;
     height: 40px;
     color: black;
-    position: absolute;
-    top: 52.5%;
+    position: relative;
+    top: -75px;
     left: 80%;
 }
 .boutique .shopBasket i{
@@ -341,44 +362,92 @@ main{
     text-shadow: 0px 0px 20px #FFFFFF;
 }
 .customButton{
-    margin: 5px auto;
+    width: 100%;
+    margin-top: auto;
+    align-self: flex-end!important;
+    background-color: #E34747;
 }
-
-
+.customButton .wrapper, .customButton .link_wrapper{
+    width: 100%;
+    height: 100%;
+    
+}
+.customButton a{
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 0 50px;
+}
+.customButton .icon{
+    left: 60%;
+    top: 0;
+    z-index: -1;
+}
+    
+.customButton .icon svg{
+    fill: white;
+}
+.customButton a:hover + .icon{
+    left: 50%;
+}
 .customButton a:hover{
+    width: inherit;
     background-color: inherit;
 }
 .customButton:hover svg{
     opacity: 0;
 }
-@media all and (max-width:1150px){
+
+@media all and (max-width:1200px){
     .boutique .basketToggle{
         left: 90%;
-        z-index: 5;
-    }
-    .boutique .basketToggle span{
-        color: black;
+        top: 10px;
     }
     
+    .boutique .basketToggle i{
+        color: black;
+    }
+    .boutique .basketToggle span{
+        color: white;
+    }
+    .boutique .logo {
+        display: none;
+    }
+    .boutique .products {
+        position: relative;
+        top: 150px;
+    }
 }
 
 
 @media all and (max-width:970px){
     .boutique .products .product{
         width: 300px;
-        height: 500px;
+        height: 580px;
     }
     .boutique .products .product img{
         width: 300px;
         height: 300px;
     }
-    .boutique .shopBasket{
-        top: 50%;
+    .description{
+        text-align: center;
     }
     
 }
-
+@media all and (max-width:750px){
+    .precommand span{
+        font-size: 12px;
+    }
+}
 @media all and (max-width:550px){
+    body{
+        background-image: url(../img/Visuels/Shop-mobile.png);
+    }
+    .precommand span{
+        font-size: 10px;
+        text-align: center;
+        padding: 0 5px;
+    }
     .boutique .basketToggle{
         left: 85%;
     }
@@ -398,7 +467,7 @@ main{
     }
     .boutique .products .product{
         width: 400px;
-        height: 620px;
+        height: 700px;
     }
     .boutique .products .product img{
         width: 400px;
@@ -408,56 +477,51 @@ main{
     .sizes,
     .price, 
     .name,
-    .type{
+    .type,
+    .description{
+        text-align: left;
         margin: 8px 20px;
         text-shadow: 0px 0px 10px #000000;
-    }
-    .boutique .shopBasket{
-        top: 52.5%;
     }
 
 
 
     .boutique .basket{
-      background-color: inherit;
-        backdrop-filter: blur(0);
         background-image: url(../img/Visuels/Shop-mobile.png);
         background-size: cover;
-    }
-    .boutique .basket .container{
-        background-color: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(0);
-        margin-top: 0;
-        padding: 10px;
-        transform: scaleY(0.9);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
         
     }
+    .boutique .basket .container{
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        margin-top: 0;
+        top: -200px;
+        padding: 50px 20px;
+        transform: scaleY(0.9);
+        width: 100%;
+        height: 130%;
+    }
 
-
-
-    
-    
 }
 @media all and (max-width:420px){
     
     .boutique .products .product{
         width: 300px;
-        height: 520px;
+        height: 600px;
+
     }
     .boutique .products .product img{
         width: 300px;
         height: 300px;
 
     }
-    .boutique .shopBasket{
-        top: 47%;
-    }
-
 
     .boutique .basket .container{
         width: 100%;
         margin: 0!important;
-        top: -40px;
     }
 
     .boutique .basket .productsFromBasket .productFromBasket ul{

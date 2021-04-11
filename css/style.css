@@ -11,6 +11,8 @@
 @import url("./contact.css");
 
 
+
+
 .cover, .videos, .visuel, .tour, .tours .soldOut{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,38 +25,40 @@
 }
 .cover{
   background-image: url(../img/Visuels/Visuel\ home\ desktop.png);
+  background-position-x: right;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 .cover .reseaux{
-  
+  position: fixed;
+  top: 90px;
   margin: 20px 20px;
-  margin-left: auto;
+  right: 0;
   height: 100px;
 }
 .cover .reseaux li{
-  opacity: 0.8;
+  opacity: 1;
   margin: 0 5px;
   
 }
 .cover .reseaux li svg{
   fill: white;
 }
-.cover .reseaux li:hover{
-  opacity: 1;
-}
+
 .cover .toWatchVideo{
   position: absolute;
   text-align: center;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-bottom: 220px;
+  margin-bottom: 210px;
     
 }
 .cover .toWatchVideo a{
   position: absolute;
   min-width: 400px;
   height: 50px;
+  z-index: 5;
   padding: 30px 30px 50px 30px;
   text-decoration: none;
   color: white;
@@ -74,7 +78,7 @@
   -webkit-transform: translate(-50%, -50%) scaleX(1.1);
       -ms-transform: translate(-50%, -50%) scaleX(1.1);
           transform: translate(-50%, -50%) scaleX(1.1);
-  padding: 40px 40px 60px 40px;
+  padding: 40px 40px 50px 40px;
   
 }
 .cover .toWatchVideo span{
@@ -85,12 +89,12 @@
   -webkit-transition: all .50s;
   -o-transition: all .50s;
   transition: all .50s;
-  
+  font-size: 20px;
 }
 .cover .toWatchVideo a:hover span{
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2)
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1)
   
 }
 
@@ -111,8 +115,11 @@
 polygon {
   fill: white;
 }
-.cover, .videos, .visuel, .tours{
+.cover, .visuel{
   height: 100vh;
+}
+.videos{
+  min-height: 100vh;
 }
 .cover .logo{
   display: none;
@@ -146,16 +153,16 @@ polygon {
   -webkit-transform: scale(0.6);
       -ms-transform: scale(0.6);
           transform: scale(0.6);
-  position: absolute;
-  top: 600px;
-  -webkit-transition: all .35s;
-  -o-transition: all .35s;
-  transition: all .35s;
+  position: relative;
+  width: 100vw;
+  -webkit-transition: all .50s;
+  -o-transition: all .50s;
+  transition: all .50s;
 
 }
 .videos iframe{
-  width: 78%;
-  height:  570px;
+  width: 55vw;
+  height: 37.5vh;
   -webkit-box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.49);
           box-shadow: 0px 4px 29px 8px rgba(0,0,0,0.49);
 }
@@ -189,7 +196,7 @@ polygon {
   margin: 20px auto;
 }
 .videos .avis{
-  margin: 40px auto;
+  margin: 50px auto;
 }
 .videos h1{
   padding-bottom: 10px;
@@ -209,21 +216,70 @@ polygon {
 
 }
 .videos .reseaux ul li{
-  margin: 0 5px;
+  margin: 0 10px;
 }
 .videos li img:hover {
   -webkit-transition: ease .35s;
   -o-transition: ease .35s;
   transition: ease .35s;
-  width: 55px;
+}
+.videos .presentation{
+  display: none;
+  width: 75%;
+  margin: 10px auto 50px auto;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.315);
+    background-color: rgba(255, 255, 255, 0.205);
+    -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+
+    
+}
+
+.videos .presentation.display{
+  display: block;
+  animation: 900ms presentationAnim forwards;
+}
+
+@keyframes presentationAnim {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.videos .presentation p.text, .videos .avis .text{
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height .50s;  
+}
+.videos .presentation p.text.expanded,  .videos .avis .text.expanded{
+  max-height: 2000px;
+} 
+.videos .presentation a{
+  color: white;
+  position: absolute;
+  right: 50px;
+}
+.videos .presentation a span::after, .videos .avis .avisExpand span::after{
+  content: "Lire la suite";
+}
+.videos .presentation a span.expanded::after, .videos .avis .avisExpand span.expanded::after{
+  content: "Fermer";
 }
 .videos .avis{
   display: none;
+}
+.videos .avis a{
+  color: white;
+  margin: 20px auto;
 }
 .visuel{
   background-image: url(../img/Visuels/Tour\ visuel.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: right;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -232,13 +288,14 @@ polygon {
           align-items: flex-end;
   pointer-events:none;
 }
+
 .visuel img{
   pointer-events:auto;
   position: absolute;
   width: 40%;
   z-index: 0;
   left: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
 }
 .visuel img:hover ~ .cursor{
   width: 50px;
@@ -255,7 +312,7 @@ polygon {
   margin: 0px auto;
 }
 .tours .container h1{
-  margin: 80px auto 10px;
+  margin: 80px auto 40px;
 
 }
 .tours .usaTour, 
@@ -272,7 +329,7 @@ polygon {
   width: 100%;
   margin-bottom: 50px;
   height: auto;
-  padding: 10px 0;
+  padding: 30px 0;
   
 }
 
@@ -305,6 +362,18 @@ polygon {
   background-color: black;
   
 }
+.tours .more-less-dates-for-usa::after, 
+.tours .more-less-dates-for-europe::after{
+  content: "\f067       DE DATES";
+  font-family: "Font Awesome 5 Free"; font-weight: 700;
+  
+}
+.tours .more-less-dates-for-usa.expanded::after, 
+.tours .more-less-dates-for-europe.expanded::after{
+  content: "\f068     DE DATES";
+  
+}
+
 .tours .usaTour .usa,
 .tours .europeTour .europe{
   display: -webkit-box;
@@ -380,7 +449,21 @@ polygon {
   height: 40px;
 }
 
+
+@media screen and (max-width:1400px){
+  .tours .europeTour .europe::after{
+    content: "UE";
+  }
+}
+@media all and (max-width:1200px){
+  .cover .reseaux{
+    display: none;
+  }
+}
 @media screen and (max-width:1030px){
+  .contactForm{
+    margin-top: 55px;
+  }
   .videos iframe{
     width: 100%;
     height:  400px;
@@ -388,31 +471,28 @@ polygon {
   
   .visuel img{
     width: 60%;
+    padding-bottom: 0px;
   }
 
-}
-@media screen and (max-width:1400px){
-  .tours .europeTour .europe::after{
-    content: "UE";
-  }
 }
 
 @media screen and (max-width:550px){
-
+  
   .videos {
-
-    height: 115vh;
+    height: inherit;
   }
 
   .videos .container{
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
-    top: auto;
-    margin-top: 40px;
+    top: 0;
+    position: relative;
+    margin-top: 60px;
+    padding: 0;
   }
   
   .videos iframe{
@@ -428,6 +508,7 @@ polygon {
   .videos .reseaux{
     display: none;
   }
+
   .videos .avis{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -452,29 +533,31 @@ polygon {
   .videos .avis h2, 
   .videos .avis span,
   .videos .avis .shopBtn{
-    margin: 15px auto;
+    margin: 20px auto;
   }
   .videos .avis-reseaux ul{
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 40px;
     padding: 0;
+    
   }
   .videos .avis-reseaux li{
+    
     padding: 0 15px;
   }
   .videos .avis-reseaux li img{
-    opacity: 0.8;
-  }
-  .videos .avis-reseaux li img:hover{
-    width: 30px;
     opacity: 1;
     cursor: pointer!important;
   }
   .cover{
     background-image: url(../img/Visuels/Mobile\ fond\ home.png);
+    background-position-x: center;
   }
+  
   .visuel{
     background-image: url(../img/Visuels/Tour\ mobile.png);
-    
+    background-position: center;
+
   }
   .cover .toWatchVideo{
     display: none;
@@ -488,7 +571,9 @@ polygon {
 
   /*Tour*/
 
-
+  .tours{
+    min-height: 700px;
+  }
   .tours .more-less-dates-for-usa, 
   .tours .more-less-dates-for-europe{
   display: none;
@@ -509,6 +594,7 @@ polygon {
             align-items: center;
     width: 100%!important;
     margin-bottom: 50px;
+    padding: 15px 0;
   }
   .tours .usaTour .usa,
   .tours .europeTour .europe{
@@ -549,13 +635,14 @@ polygon {
     -webkit-transition: all .50s;
     -o-transition: all .50s;
     transition: all .50s;
+    pointer-events: none;
   }
   .tours .europeTour .europe::after{
     content: "EUROPE";
   }
   .tours i{
     cursor: pointer!important;
-
+    pointer-events: none;
   }
   .tours .usaTour .usa div.expanded,
   .tours .europeTour .europe div.expanded{
@@ -635,17 +722,16 @@ polygon {
   }
   .tours .dates .date{
     width: 100%;
-    margin: 10px 0 20px 0 ;
+    margin: 40px 0 20px 0 ;
   }
   .tours .soldOut{
     margin: auto;
   }
+ 
 }
 
 @media screen and (max-width:500px){
-  .videos {
-    height: 140vh;
-  }
+  
   .videos .avis{
     padding: 20px;
   }
@@ -657,4 +743,5 @@ polygon {
   .videos .avis-reseaux li{
     padding: 0 5px;
   }
+  
 }

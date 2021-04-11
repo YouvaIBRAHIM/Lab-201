@@ -9,7 +9,7 @@
 
 .contact, .addExperience{
   
-  z-index: 5;
+  z-index: 6;
   width: 100vw;
   height: 100vh;
   display: none;
@@ -99,9 +99,9 @@
   padding-top: 20px;
 }
 .contact .contactForm input,
-.addExperience .experienceForm input 
+.addExperience .experienceForm input, 
 .contact .contactForm textarea,
-.addExperience .experienceForm textarea 
+.addExperience .experienceForm textarea, 
 .contact .contactForm button,
 .addExperience .experienceForm button{
 
@@ -157,23 +157,34 @@
   .addExperience .experienceForm {
     height: 700px;
   }
+  .addExperience .experienceForm{
+    position: relative;
+    top: -20px;
+  }
   .contact .contactForm .closeBtn,
   .addExperience .experienceForm .closeBtn{
     top: -86.5%;
     left: 108%;
   }
-  .contact .contactForm input,
+  
   .addExperience .experienceForm input{
     width: 60%;
   }
+  .contact .contactForm input{
+    margin: 0!important;
+    width: 100%;
+  }
   .contact .contactForm .name-email input,
   .addExperience .experienceForm .subject-email input{
-    margin-top: 20px;
+    margin-top: 20px!important;
   }
 
 }
 @media screen and (max-width:550px){
- 
+  .contactForm .closeBtn{
+    left: 100%!important;
+    top: -89%!important;
+  }
   .contact .contactForm,
   .addExperience .experienceForm{
     width: 90%;

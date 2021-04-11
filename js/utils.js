@@ -1,3 +1,4 @@
+
 export function isMailValid(email){
 	if(email.length < 8 || email.length > 30) return false;
 	if(email.indexOf("@") < 2) return false;
@@ -28,4 +29,9 @@ export function getCurrentHour() {
     const minute = '0' + date.getMinutes();
     const currentHour = hour.substr(-2) + ':' + minute.substr(-2);
     return currentHour;
+}
+
+export function pushData(path, data, firebaseDb) {
+    let dataToPush = firebaseDb.child(path);
+    dataToPush.push(data); 
 }

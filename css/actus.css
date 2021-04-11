@@ -16,9 +16,11 @@ body{
 main{
     color: white;
     position: relative;
-    top: 74px;
+    
 }
-
+.contactForm{
+    margin-top: 50px;
+}
 .actus, 
 .actus .container, 
 .actus .container .articles,
@@ -36,6 +38,9 @@ main{
 .experienceContainer{
     margin-top: 50px;
 }
+.actus .container{
+    margin-top: 75px;
+}
 .actus .container .publication,
 .experienceContainer .experiences .experience{
     justify-content: flex-start;
@@ -43,7 +48,7 @@ main{
     width: 500px;
     background-color: rgba(61, 61, 61, 0.527);
     backdrop-filter: blur(20px);
-    padding-bottom: 10px;
+    padding-bottom: 20px;
    margin-bottom: 50px;
    transition: all .35s;
 }
@@ -74,12 +79,7 @@ main{
     margin-top: 10px;
 }
 
-.actus .container .publication .text,
-.experienceContainer .experiences .experience .text
-.actus .container .publication .read,
-.experienceContainer .experiences .experience .read {
-    margin: 15px 0;
-}
+
 .actus .container .publication .text,
 .experienceContainer .experiences .experience .text{
     transition: max-height .50s;
@@ -107,7 +107,7 @@ main{
     content: "Fermer";
 }
 
-.addToggleExperiece{
+.addToggleExperience{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -115,17 +115,19 @@ main{
     align-items: center;
     height: 75px;
     background-color: #E34747;
+    position: relative;
+    top: 75px;
 }
-.addToggleExperiece p{
+.addToggleExperience p{
     margin: 0 10px;
 }
-.addToggleExperiece p::before{
+.addToggleExperience p::before{
     content: "\f06a";
     font-family: "Font Awesome 5 Free"; 
     font-weight: 900;
     margin: 0 20px;
 }
-.addToggleExperiece a{
+.addToggleExperience a{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,6 +151,7 @@ main{
     justify-content: center;
     align-items: center;
 }
+
 .addExperience .container .subject-email {
     width: 100%;
     display: flex;
@@ -165,13 +168,14 @@ main{
 }
 .addExperience .container textarea{
     border: 1px solid black;
+    height: 250px;
 }
 .addExperience .container .closeBtn{
-    top: -420px;
+    top: -485px;
 }
 @media screen and (max-width:995px){
     .addExperience .container .closeBtn{
-        top: -585px;
+        top: -620px;
     }
     .addExperience .container .subject-email input{
         width: 100%;
@@ -179,7 +183,7 @@ main{
     }
 }
 @media screen and (max-width:670px){
-    .addToggleExperiece a{
+    .addToggleExperience a{
         padding: 5px 35px;
     }
 }
@@ -196,7 +200,7 @@ main{
     .addExperience .container .closeBtn{
         left: 100%;
     }
-    .addToggleExperiece p{
+    .addToggleExperience p{
         font-size: 14px;
     }
 }
@@ -211,7 +215,7 @@ main{
     .experienceContainer .experiences .experience img{
         width: 340px;
     }
-    .addToggleExperiece p{
+    .addToggleExperience p{
         margin: 0;
         font-size: 12px;
     }

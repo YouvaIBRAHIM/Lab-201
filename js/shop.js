@@ -33,6 +33,7 @@ function productGenerator(products, index) {
                 <h2 class="name">${products[index].name}</h2>
                 <h4 class="type">${products[index].type}</h4>
                 <h5 class="sizes">${sizesToDisplay}</h5>
+                <p class="description">${products[index].description}</p>
                 <h3 class="price">${products[index].price}</h3>
                 <div class="customButton">
                 <div class="wrapper">
@@ -55,12 +56,13 @@ async function getProducts() {
     let products;
     let firebaseDb = await firebase.database().ref();
         firebaseDb.child('products').on('value', snap => {
-            let keys = Object.keys(snap.val());
-            products = Object.values(snap.val());
+            let keys = Object.keys(snap.val()).reverse();
+            products = Object.values(snap.val()).reverse();
             productsDiv.innerHTML = "";
             for (let i = 0; i < products.length; i++) {
                 products[i].key = keys[i];
                 products[i].index = i;
+                products[i].nbOfProduct = 1;
                 let product = productGenerator(products, i);
                 productsDiv.innerHTML += product;
             }
@@ -168,25 +170,24 @@ async function getProductsFromBasket() {
     }
     
     for (let i = 0; i < basket.length; i++) {
-        basket[i].nbOfProduct = 1;
+        
         let product = basketProductGenerator(basket, i);
         productsFromBasket.innerHTML += product;
     }
     let shopBaskets = document.querySelectorAll(".boutique .shopBasket i");
     const product = document.querySelectorAll(".boutique .basket .productFromBasket");
     const moreBtn = document.querySelectorAll(".boutique .basket .more");
-    const lessBtn = document.querySelectorAll(".boutique .basket .less");
+    let lessBtn = document.querySelectorAll(".boutique .basket .less");
     const nbProduct = document.querySelectorAll(".boutique .basket .nbProduct");
     let totalToPay = 0;
     
     for (let j = 0; j < moreBtn.length; j++) {
         let updatedTotal = 0;  
         totalToPay += parseInt(basket[j].nbOfProduct) * parseInt(basket[j].price);
-        console.log(parseInt(totalToPay))
         total.innerHTML = totalToPay;
         moreBtn[j].addEventListener('click', (event) => {
             event.preventDefault();
-            basket[j].nbOfProduct = basket[j].nbOfProduct + 1;
+            basket[j].nbOfProduct++;
             nbProduct[j].innerHTML = basket[j].nbOfProduct;
             for (let k = 0; k < basket.length; k++) {
                 updatedTotal += (parseInt(basket[k].nbOfProduct) * parseInt(basket[k].price));
@@ -196,20 +197,23 @@ async function getProductsFromBasket() {
             total.innerHTML = totalToPay;
             updatedTotal = 0;
         })
+        
         lessBtn[j].addEventListener('click', (event) => {
+            
             event.preventDefault();
                 basket[j].nbOfProduct = basket[j].nbOfProduct - 1;
                 nbProduct[j].innerHTML = basket[j].nbOfProduct;
-
+                localStorage.setItem('basket', JSON.stringify(basket));
                 totalToPay = totalToPay - parseInt(basket[j].price);
                 total.innerHTML = totalToPay;
             if (basket[j].nbOfProduct == 0) {
-                console.log(shopBaskets[basket[j].index])
+                
                 shopBaskets[basket[j].index].style.color = 'black';
                 shopBaskets[basket[j].index].style.textShadow = "0px 0px 14px #FFFFFF";
-                basket.splice(j, 1);
-                localStorage.setItem('basket', JSON.stringify(basket));
-                product[j].remove();
+                
+                let updateBasket = basket;
+                updateBasket.splice(j, 1);
+                localStorage.setItem('basket', JSON.stringify(updateBasket));
                 if (basket.length > 0) {
                     basketToggleNbProducts.innerHTML = basket.length;
                 }else{
@@ -220,19 +224,14 @@ async function getProductsFromBasket() {
                     
                      
                 }
-            }            
+            }
+            getProductsFromBasket();           
         })
     }
     
 
 }
 basketToggle.addEventListener('click', () => {
-    productsFromBasket.innerHTML = "";
-    body.classList.toggle('expanded');
-    basketContainer.classList.toggle('expanded');
-    getProductsFromBasket();
-});
-basketContainer.addEventListener('click', () => {
     productsFromBasket.innerHTML = "";
     body.classList.toggle('expanded');
     basketContainer.classList.toggle('expanded');

@@ -1,4 +1,5 @@
 import firebaseConfig from './firebaseConfig.js';
+import { isNameValid, isMailValid, getCurrentHour, getCurrentDate, pushData } from "./utils.js";
 firebase.initializeApp(firebaseConfig);
 const firebaseDb = firebase.database().ref();
 const Toast = Swal.mixin({
@@ -22,10 +23,7 @@ const submitBtn = document.querySelector('.contact button');
 
 submitBtn.addEventListener('click', onToggleSubmit)
 
-function pushData(path, data) {
-    let dataToPush = firebaseDb.child(path);
-    dataToPush.push(data); 
-}
+
 contactBtn.addEventListener('click', (event) => {
     event.preventDefault();
     contact.style.display = "flex";
@@ -33,21 +31,7 @@ contactBtn.addEventListener('click', (event) => {
 closeContactBtn.addEventListener('click', (event) => {
     contact.style.display = "none";
 })
-function getCurrentDate() {
-    const date = new Date();
-    const year = date.getUTCFullYear();
-    const month = '0' + (date.getMonth()+1);
-    const day = '0' + date.getDate();
-    const currentDate = day.substr(-2) + '/' + month.substr(-2) + '/' + year;
-    return currentDate;
-}
-function getCurrentHour() {
-    const date = new Date();
-    const hour = '0' + date.getHours()
-    const minute = '0' + date.getMinutes();
-    const currentHour = hour.substr(-2) + ':' + minute.substr(-2);
-    return currentHour;
-}
+
 
 
             
@@ -66,7 +50,7 @@ function onToggleSubmit(event) {
                     date : getCurrentDate(),
                     hour : getCurrentHour()
                 }
-                pushData('messages', newMessage);
+                pushData('messages', newMessage, firebaseDb);
                 Toast.fire({
                     icon: 'success',
                     title: 'Message envoyé'
@@ -101,21 +85,6 @@ function onToggleSubmit(event) {
 }
 
 
- function isMailValid(email){
-	if(email.length < 8 || email.length > 30) return false;
-	if(email.indexOf("@") < 2) return false;
-	if(email.split('@').length > 2) return false;
-	return true;	
-}
 
-function isNameValid(name){
-	if(name.length < 2 || name.length > 20) return false;
-	if(name.indexOf('*') > -1 || name.indexOf('$') > -1 
-	|| name.indexOf('&') > -1 || name.indexOf('#') > -1 
-	|| name.indexOf("\\") > -1 || name.indexOf('@') > -1 ){
-	return false;
-	}
-	return true;	
-}
 
 

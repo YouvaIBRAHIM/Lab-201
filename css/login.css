@@ -31,14 +31,14 @@ main{
             align-items: center;
 }
 .log {
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 100vh;
     
 }
 
 .log .container{
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 250px;
     background-color: rgba(121, 121, 121, 0.712);
